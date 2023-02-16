@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "722299854306",
+    "project_id": "ba-road",
+    "storage_bucket": "ba-road.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722299854306:android:4ddc1ce2b86f9d74dbedbb",
+        "android_client_info": {
+          "package_name": "com.example.baroad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722299854306-598t437t219asl4tv86rrjd1a716p965.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baroad",
+            "certificate_hash": "671f804218deeb987fa8d6e39b122448f9254bfb"
+          }
+        },
+        {
+          "client_id": "722299854306-67jh1mriq7bplem80t6225sp8pg27p5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHJL-yFq1ujO5UM6oUkb_hqW-px61vphI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722299854306-67jh1mriq7bplem80t6225sp8pg27p5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
