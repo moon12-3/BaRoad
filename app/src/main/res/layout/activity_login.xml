@@ -13,7 +13,7 @@
         android:gravity="center"
         />
     <TextView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:text="ID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:text="Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
+        android:id="@+id/go_main_btn"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
