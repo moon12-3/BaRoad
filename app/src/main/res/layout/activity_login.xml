@@ -13,30 +13,33 @@
         android:gravity="center"
         />
     <TextView
-        android:layout_marginTop="100dp"
-        android:text="Login"
+        android:layout_marginTop="60dp"
+        android:text="ID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-
+        android:id="@+id/id_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:text="Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
+        android:id="@+id/pass_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
-        android:layout_marginTop="50dp"
+        android:id="@+id/go_main_btn"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="넘어가기"/>
     <TextView
+        android:id="@+id/go_sign_btn"
         android:text="회원가입 하러가기"
         android:gravity="center"
         android:textColor="#0011ff"
