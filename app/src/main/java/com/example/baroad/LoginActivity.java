@@ -22,6 +22,13 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if(currentUser != null) {
+            // 로그인된 사용자가 있는 경우 필요한 작업 진행
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
+
         EditText IDText = findViewById(R.id.id_text);
         EditText PassText = findViewById(R.id.pass_text);
 
