@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/house"
+        android:title="홈" />
+    <item
+        android:id="@+id/user"
+        android:enabled="true"
+        android:icon="@drawable/notepad"
+        android:title="둘러보기"/>
+
+    <item
+        android:id="@+id/my_list"
+        android:enabled="true"
+        android:icon="@drawable/mappin"
+        android:title="내 일정">
+    </item>
+    <item
+        android:id="@+id/calcu"
+        android:enabled="true"
+        android:icon="@drawable/calculator"
+        android:title="계산">
+    </item>
+    <item
+        android:id="@+id/my_page"
+        android:enabled="true"
+        android:icon="@drawable/user"
+        android:title="마이페이지">
+    </item>
+</menu>
