@@ -8,40 +8,61 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입"
-        android:textSize="30sp"
-        android:layout_marginTop="200dp"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="#5252A1"
+        android:layout_marginTop="180dp"
         android:gravity="center"
         />
-    <TextView
-        android:layout_marginTop="60dp"
-        android:text="E-mail"
+    <EditText
+        android:id="@+id/id_nickname"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_container"
+        android:hint="닉네임"
+        android:textSize="14dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+        android:paddingLeft="27dp"/>
     <EditText
         android:id="@+id/email_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:layout_marginTop="60dp"
-        android:text="Password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_container"
+        android:hint="이메일 (example@mail.com)"
+        android:textSize="14dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="27dp"/>
     <EditText
         android:id="@+id/pass_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_container"
+        android:hint="비밀번호"
+        android:textSize="14dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+        android:paddingLeft="27dp"/>
     <Button
         android:id="@+id/join_btn"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:background="@drawable/login_box"
+        android:textSize="18dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입"/>
+        android:text="회원가입"
+        android:textColor="#ffffff"/>
     <TextView
-        android:text="로그인 하러가기"
+        android:text="로그인 하기"
         android:gravity="center"
-        android:textColor="#0011ff"
+        android:textColor="#A1A1A1"
+        android:layout_marginTop="37dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
