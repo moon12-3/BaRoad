@@ -6,7 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MainFragment">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -23,6 +30,7 @@
             android:layout_marginTop="189dp"
             android:layout_marginLeft="24dp"
             android:text="여행을 준비 해 볼까요?"
+            android:textColor="#404040"
             android:textSize="22dp"
             android:textStyle="bold"/>
     </FrameLayout>
@@ -60,12 +68,13 @@
                 android:textSize="12dp"
                 android:layout_marginLeft="47dp"
                 android:layout_marginTop="20dp"
-                android:background="@android:color/transparent" />
+                android:background="@android:color/transparent"
+                android:textColor="#A1A1A1"/>
         </FrameLayout>
     </FrameLayout>
 
     <FrameLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <FrameLayout
             android:layout_width="wrap_content"
@@ -75,13 +84,13 @@
                 android:layout_width="126dp"
                 android:layout_height="126dp"
                 android:background="@drawable/local_btn"
-                android:layout_marginLeft="34dp"
+                android:layout_marginLeft="44dp"
                 android:layout_marginTop="20dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="111dp"
-                android:layout_marginLeft="69dp"
+                android:layout_marginLeft="77dp"
                 android:text="지역 선택"
                 android:textSize="14dp"
                 android:textColor="#ffffff"/>
@@ -90,27 +99,126 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp">
-
+            android:layout_gravity="right">
             <ImageButton
                 android:id="@+id/season_btn"
                 android:layout_width="126dp"
                 android:layout_height="126dp"
                 android:layout_gravity="right"
-                android:layout_marginLeft="200dp"
+                android:layout_marginRight="44dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/local_btn" />
+                android:background="@drawable/local_btn"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="235dp"
+                android:layout_marginLeft="35dp"
                 android:layout_marginTop="111dp"
                 android:text="계절 선택"
                 android:textColor="#ffffff"
                 android:textSize="14dp" />
         </FrameLayout>
     </FrameLayout>
-
-
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+        <Button
+            android:layout_width="54dp"
+            android:layout_height="24dp"
+            android:background="@drawable/local"
+            android:layout_marginLeft="24dp" />
+        <Button
+            android:layout_width="32dp"
+            android:layout_height="24dp"
+            android:background="@drawable/season"
+            android:layout_marginLeft="7dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="코스 추천받기"
+            android:textStyle="bold"
+            android:layout_marginLeft="11dp"
+            android:textSize="16dp"
+            android:textColor="#4B4B4B"/>
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="129dp"
+                    android:layout_height="181dp"
+                    android:background="@drawable/course"
+                    android:layout_marginLeft="24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="나고야 중심부\n위주 코스 #1"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="40dp"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="129dp"
+                    android:layout_height="181dp"
+                    android:background="@drawable/course"
+                    android:layout_marginLeft="9dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="나고야 중심부\n위주 코스 #2"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="25dp"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:layout_width="129dp"
+                    android:layout_height="181dp"
+                    android:background="@drawable/course"
+                    android:layout_marginLeft="9dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="가족들을 위한\n체험여행 뤀트"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="25dp"/>
+            </FrameLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내 일정"
+        android:textStyle="bold"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="24dp"
+        android:textSize="16dp"/>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
