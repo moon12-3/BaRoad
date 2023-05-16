@@ -28,10 +28,122 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="임재연 님"
-            android:textColor="#5252A1"/>
-
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="15dp"
+            android:text="임재연 님\n현재 나고야 여행중"
+            android:id="@+id/myPage_id_txt"
+            android:textColor="#636363"/>
+        <Button
+            android:layout_width="74dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="80dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/myPage_btn"/>
     </LinearLayout>
-
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="19dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/myPage_like"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/myPage_schedule"/>
+    </LinearLayout>
+    <View
+        android:layout_width="360dp"
+        android:layout_gravity="center"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"
+        android:layout_marginTop="19dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설정"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#1F1F1F"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="27dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/myPage_customerCenter"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="고객센터"
+                android:textColor="#777777"
+                android:gravity="left|center_vertical"
+                style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
+    <View
+        android:layout_width="360dp"
+        android:layout_gravity="center"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/myPage_Privacy"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="개인정보 처리 방침"
+                android:textColor="#777777"
+                android:gravity="left|center_vertical"
+                style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
+        <View
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/myPage_version"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="버전 정보"
+                android:textColor="#777777"
+                android:gravity="left|center_vertical"
+                style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
+        <View
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+    </LinearLayout>
 </LinearLayout>

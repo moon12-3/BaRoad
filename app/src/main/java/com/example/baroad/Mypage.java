@@ -1,64 +1,46 @@
 package com.example.baroad;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Mypage#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Mypage extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Mypage() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Mypage.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Mypage newInstance(String param1, String param2) {
-        Mypage fragment = new Mypage();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mypage, container, false);
+        View view =  inflater.inflate(R.layout.fragment_mypage, container, false);
+        //특정문자강조
+        TextView textView = view.findViewById(R.id.myPage_id_txt);
+        String content = textView.getText().toString();
+        SpannableString spannableString = new SpannableString(content);
+        String word ="임재연";
+        int start = content.indexOf(word);
+        int end = start+word.length();
+        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#5252A1")),start,end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new RelativeSizeSpan(1.3f), start, end, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        String word2 ="나고야";
+        int start2 = content.indexOf(word2);
+        int end2 = start2+word2.length();
+        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#5252A1")),start2,end2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(Typeface.BOLD), start2, end2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new RelativeSizeSpan(1.3f), start2, end2, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        textView.setText(spannableString);
+        return view;
     }
 }
