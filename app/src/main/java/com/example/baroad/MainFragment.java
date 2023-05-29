@@ -29,8 +29,8 @@ public class MainFragment extends Fragment {
         String word ="여행";
         int start = content.indexOf(word);
         int end = start+word.length();
-        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#5252A1")),start,end,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(spannableString);
+//        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#5252A1")),start,end,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        textView.setText(spannableString);
         return view;
 
 

@@ -26,12 +26,12 @@
             android:layout_height="72dp"
             android:src="@drawable/mypage_profile"/>
         <TextView
+            android:id="@+id/myPage_id_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
             android:layout_marginTop="15dp"
             android:text="임재연 님\n현재 나고야 여행중"
-            android:id="@+id/myPage_id_txt"
             android:textColor="#636363"/>
         <Button
             android:layout_width="74dp"
@@ -145,5 +145,11 @@
             android:layout_gravity="center"
             android:layout_height="1dp"
             android:background="#DDDDDD" />
+
+        <Button
+            android:id="@+id/log_out"
+            android:text="test용 로그아웃 버튼"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>
