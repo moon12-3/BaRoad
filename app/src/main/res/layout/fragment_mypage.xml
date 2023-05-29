@@ -39,7 +39,7 @@
             android:layout_marginLeft="80dp"
             android:layout_gravity="bottom"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/myPage_btn"/>
+            android:background="@drawable/mypage_btn"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -53,13 +53,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="2dp"
-            android:background="@drawable/myPage_like"/>
+            android:background="@drawable/mypage_like"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="2dp"
-            android:background="@drawable/myPage_schedule"/>
+            android:background="@drawable/mypage_schedule"/>
     </LinearLayout>
     <View
         android:layout_width="360dp"
@@ -89,7 +89,7 @@
             <Button
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/myPage_customerCenter"/>
+                android:background="@drawable/mypage_customercenter"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
             <Button
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/myPage_Privacy"/>
+                android:background="@drawable/mypage_privacy"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             <Button
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/myPage_version"/>
+                android:background="@drawable/mypage_version"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
