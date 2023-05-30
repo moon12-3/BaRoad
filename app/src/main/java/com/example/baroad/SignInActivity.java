@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -12,9 +13,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth auth;
+    private DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +27,11 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         auth = auth.getInstance();
+        db = FirebaseDatabase.getInstance().getReference();
 
         EditText email = findViewById(R.id.email_text);
         EditText pass = findViewById(R.id.pass_text);
+        EditText name = findViewById(R.id.id_nickname);
 
         findViewById(R.id.join_btn).setOnClickListener(v->{
             if(!email.getText().toString().equals("") && !pass.getText().toString().equals("")) {
@@ -36,6 +43,14 @@ public class SignInActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // 회원가입 성공시
                                     Toast.makeText(SignInActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
+
+                                    FirebaseUser user = auth.getCurrentUser();
+                                    String uid = user.getUid();
+                                    UserModel userModel = new UserModel(name.getText().toString(), "imgsrc");
+                                    addUserToDatabase(userModel, uid);
+                                    finish();
+                                    Log.d("mytag", "회원 가입(=유저 생성) 성공 " + uid);
+
                                     Intent intent = new Intent(SignInActivity.this, LoginActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -51,5 +66,9 @@ public class SignInActivity extends AppCompatActivity {
                 Toast.makeText(this, "계정과 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void addUserToDatabase(UserModel userModel, String uId) {
+        db.child("users").child(uId).setValue(userModel);
     }
 }

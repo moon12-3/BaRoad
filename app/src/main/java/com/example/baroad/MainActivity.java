@@ -2,8 +2,14 @@ package com.example.baroad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,6 +22,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottom = findViewById(R.id.navigationView);
         getSupportFragmentManager().beginTransaction().add(R.id.frame, new MainFragment()).commit();
+
+
+        bottom.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.my_page:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new Mypage()).commit();
+                        break;
+                }
+
+                return true;
+            }
+        });
+    }
+
+    public void endActivity() {
+        Log.d("mytag", "실행되는거지??");
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }
