@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TripPost1">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/back"
+            android:layout_marginTop="42dp"
+            android:layout_marginLeft="20dp"/>
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/heart"
+            android:layout_marginTop="42dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="218dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/post1"
+        app:layout_constraintTop_toTopOf="parent"/>
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나고야 중심부 위주 코스1"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        android:textColor="#616161"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#봄 #여름 #가을 #겨울"
+        android:layout_marginLeft="20dp"
+        android:textColor="#2196F3"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="83dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/post1_1"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/post_line"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="8dp"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/bus"
+            android:layout_marginLeft="13dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나고야 관광루트 버스 메구루 : 약 21분"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/post1_2"
+            android:adjustViewBounds="true"/>
+        <HorizontalScrollView
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="214dp"
+                    android:layout_height="162dp"
+                    android:layout_marginTop="74dp"
+                    android:src="@drawable/img1" />
+
+                <ImageView
+                    android:layout_width="214dp"
+                    android:layout_height="162dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="74dp"
+                    android:src="@drawable/img2" />
+
+                <ImageView
+                    android:layout_width="214dp"
+                    android:layout_height="162dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="74dp"
+                    android:src="@drawable/img3" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/post_line"
+                    android:layout_marginLeft="71dp"
+                    android:layout_marginTop="8dp"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/bus"
+                    android:layout_marginLeft="13dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지하철 쓰루마이선 : 약 10분"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/post1_3"
+                    android:adjustViewBounds="true"/>
+                <HorizontalScrollView
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img4" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img5" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img6" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/post_line"
+                    android:layout_marginLeft="71dp"
+                    android:layout_marginTop="8dp"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/walk"
+                    android:layout_marginLeft="13dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="걷기 : 약 12분"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/post1_4"
+                    android:adjustViewBounds="true"/>
+                <HorizontalScrollView
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img7" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img8" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img9" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/post_line"
+                    android:layout_marginLeft="71dp"
+                    android:layout_marginTop="8dp"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/bus"
+                    android:layout_marginLeft="13dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지하철 메이조선 : 약 5분"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/post1_5"
+                    android:adjustViewBounds="true"/>
+                <HorizontalScrollView
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img10" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img11" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img12" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </FrameLayout>
+            <Button
+                android:layout_width="312dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/addbtn"
+                android:layout_marginTop="20dp"/>
+</LinearLayout>
+    </ScrollView>
+</LinearLayout>
