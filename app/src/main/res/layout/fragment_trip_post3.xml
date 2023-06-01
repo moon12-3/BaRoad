@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".TripPost3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/back"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginLeft="20dp"/>
+                <Button
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/heart"
+                    android:layout_marginTop="42dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="218dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/post3"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가족들을 위한 체험여행 코스"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:textColor="#616161"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#봄 #여름 #가을"
+                android:layout_marginLeft="20dp"
+                android:textColor="#2196F3"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="83dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/post1_1"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/post_line"
+                    android:layout_marginLeft="71dp"
+                    android:layout_marginTop="8dp"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/bus"
+                    android:layout_marginLeft="13dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="지하철 히가시야마선 : 약 21분"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/post3_2"
+                    android:adjustViewBounds="true"/>
+                <HorizontalScrollView
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_1" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_2" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_3" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:background="@drawable/post_line"
+                        android:layout_marginLeft="71dp"
+                        android:layout_marginTop="8dp"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/bus"
+                        android:layout_marginLeft="13dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지하철 히가시야마선 : 약 20분"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:background="@drawable/post_line"
+                        android:layout_marginLeft="71dp"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/bus"
+                        android:layout_marginLeft="13dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지하철 메이테츠나고야선 : 약 16분"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/post3_3"
+                    android:adjustViewBounds="true"/>
+                <HorizontalScrollView
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_4" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_5" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_6" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:background="@drawable/post_line"
+                        android:layout_marginLeft="71dp"
+                        android:layout_marginTop="8dp"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/bus"
+                        android:layout_marginLeft="13dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지하철 히가시야마선 : 약 20분"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:background="@drawable/post_line"
+                        android:layout_marginLeft="71dp"/>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/bus"
+                        android:layout_marginLeft="13dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="지하철 메이테츠나고야선 : 약 16분"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/post3_4"
+                    android:adjustViewBounds="true"/>
+                <HorizontalScrollView
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_7" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_8" />
+
+                        <ImageView
+                            android:layout_width="214dp"
+                            android:layout_height="162dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="74dp"
+                            android:src="@drawable/img3_9" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </FrameLayout>
+            <Button
+                android:layout_width="312dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/addbtn"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
