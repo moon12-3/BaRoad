@@ -37,7 +37,9 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-database' // 데이터 베이스
+
+    implementation 'com.google.firebase:firebase-firestore' // 파이어스토어
 
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
