@@ -76,7 +76,7 @@ public class Myplan_map extends AppCompatActivity
         mapFragment.getMapAsync(this);
 
         mMarkerPoints = new ArrayList<>();
-
+/*
         myBookMark = new ArrayList<>();
         testTitles = new ArrayList<>();
         testTitles.add("나고야 역");
@@ -109,22 +109,52 @@ public class Myplan_map extends AppCompatActivity
         testTitles.add("크루즈 나고야");
         testTitles.add("나고야항 수족관");
         testTitles.add("리니어, 철도관");
-        myBookMark.add(testTitles);
+        myBookMark.add(testTitles);*/
         //내일정, 북마크 탭
-        planPlace = findViewById(R.id.planPlace);
+        /*planPlace = findViewById(R.id.planPlace);
         PlanBtn = findViewById(R.id.planbtn);
         planBtnt = findViewById(R.id.planbtnt);
         plusplan = findViewById(R.id.plusplan);
         BkmBtn = findViewById(R.id.bmkbtn);
         bkmBtnt = findViewById(R.id.bmkbtnt);
-        planText = findViewById(R.id.plantext);
+        planText = findViewById(R.id.plantext);*/
+
+        testTitles = new ArrayList<>();
+        testTitles.add("나고야 역");
+        testTitles.add("나고야 성");
+        testTitles.add("나고야시 과학관, 미술관");
+        testTitles.add("오스 상점가");
+        testTitles.add("사카에 지역");
+        testTitles.add("이자카야 고미토리 본점");
+        myBookMark.add(testTitles);
+
+        for(String a : testTitles){// 검색창에서 텍스트를 가져온다
+            String searchText = a;
+
+            Geocoder geocoder = new Geocoder(getBaseContext());
+            List<Address> addresses = null;
+
+            try {
+                addresses = geocoder.getFromLocationName(searchText, 3);
+                if (addresses != null && !addresses.equals(" ")) {
+                    mMarkerPoints.add(searchText);
+                    search(addresses, searchText);
+                }
+            } catch(Exception e) {
+
+            }
+        }
+
         PlanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 PlanBtn.setBackgroundColor(getResources().getColor(R.color.white));
                 planBtnt.setTextColor(getResources().getColor(R.color.mycolor));
                 BkmBtn.setBackgroundColor(getResources().getColor(R.color.mycolor));
                 bkmBtnt.setTextColor(getResources().getColor(R.color.white));
+                */
+
                 plusplan.setImageResource(R.drawable.plusbtn);
                 planPlace.removeAllViews();
                 planText.setText("내 일정");
@@ -390,7 +420,7 @@ public class Myplan_map extends AppCompatActivity
 
     }
     private void drawPath(){        //polyline을 그려주는 메소드
-        options.width(5).color(Color.BLACK).geodesic(true);
+        options.width(5).color(R.color.mycolor).geodesic(true);
         polylines.add(mMap.addPolyline(options));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(options.getPoints().get(1), 13));
     }
