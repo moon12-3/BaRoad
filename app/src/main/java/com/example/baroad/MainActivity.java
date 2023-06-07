@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void endActivity() {
-        Log.d("mytag", "실행되는거지??");
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();

@@ -55,6 +55,7 @@ public class SignInActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 } else {
+                                    if(pass.getText().toString().length() < 6) Toast.makeText(SignInActivity.this, "비밀번호를 6자리 이상으로 설정해주세요.", Toast.LENGTH_SHORT).show();
                                     // 계정이 중복된 경우
                                     Toast.makeText(SignInActivity.this, "이미 존재하는 계정입니다.", Toast.LENGTH_SHORT).show();
                                 }
