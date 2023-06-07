@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <!--검색어 입력 리스트뷰 목록에 뜰 layout-->
             <ImageButton
                 android:layout_width="312dp"
                 android:layout_height="140dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/main_listview"/>
 </LinearLayout>

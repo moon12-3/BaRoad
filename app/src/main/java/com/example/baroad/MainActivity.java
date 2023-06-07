@@ -28,6 +28,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.home :
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MainFragment()).commit();
+                        break;
+                    case R.id.map:
+                        break;
+                    case R.id.my_list:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MyPlan()).commit();
+                        break;
                     case R.id.my_page:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new Mypage()).commit();
                         break;
@@ -36,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public void changeFragment(int index) {
+        switch (index) {
+            case 1:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, new MyPlan())
+                        .commit();
+                break;
+        }
     }
 
     public void endActivity() {
