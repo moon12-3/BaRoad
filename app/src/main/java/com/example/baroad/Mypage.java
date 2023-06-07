@@ -1,5 +1,6 @@
 package com.example.baroad;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -38,6 +39,13 @@ public class Mypage extends Fragment {
     private FirebaseAuth auth;
 
     private String word;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

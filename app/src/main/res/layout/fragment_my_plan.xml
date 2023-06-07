@@ -57,11 +57,18 @@
                 android:textSize="12dp" />
         </FrameLayout>
     </FrameLayout>
-    <ListView
+<!--    <ListView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="29dp"/>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"/>
+        android:layout_height="450dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="20dp"/>
     <Button
+        android:id="@+id/add_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/plus"
