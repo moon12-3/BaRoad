@@ -80,7 +80,6 @@ public class MyPlan extends Fragment {
                         }
                     });
         });
-
         return view;
     }
 

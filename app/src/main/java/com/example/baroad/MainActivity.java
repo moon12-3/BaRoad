@@ -31,10 +31,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home :
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MainFragment()).commit();
                         break;
-                    case R.id.map:
-                        break;
+
                     case R.id.my_list:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MyPlan()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new Mypage()).commit();
                         break;
                     case R.id.my_page:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new Mypage()).commit();
