@@ -31,6 +31,14 @@ import java.util.List;
 
 public class MyPlan extends Fragment {
 
+    public MyPlan() {
+        // Required empty public constructor
+    }
+
+    public static Fragment newInstance() {
+        return new MyPlan();
+    }
+
     private FragmentMyPlanBinding binding;
 
     private FirebaseFirestore db;

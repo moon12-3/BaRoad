@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link LookAroud#newInstance} factory method to
+ * Use the {@link LookAround#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LookAroud extends Fragment {
+public class LookAround extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class LookAroud extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public LookAroud() {
+    public LookAround() {
         // Required empty public constructor
     }
 
@@ -37,8 +37,8 @@ public class LookAroud extends Fragment {
      * @return A new instance of fragment LookAroud.
      */
     // TODO: Rename and change types and number of parameters
-    public static LookAroud newInstance(String param1, String param2) {
-        LookAroud fragment = new LookAroud();
+    public static LookAround newInstance(String param1, String param2) {
+        LookAround fragment = new LookAround();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class LookAroud extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_look_aroud, container, false);
+        return inflater.inflate(R.layout.fragment_look_around, container, false);
     }
 }
