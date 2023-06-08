@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="마이페이지"
-        android:textColor="#000000"
+        android:textColor="#5252A1"
         android:textStyle="bold"
         android:textSize="20dp"
         android:layout_marginTop="55dp"
@@ -33,34 +33,66 @@
             android:layout_marginTop="15dp"
             android:text="임재연 님\n현재 나고야 여행중"
             android:textColor="#636363"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <Button
             android:layout_width="74dp"
             android:layout_height="34dp"
             android:layout_marginLeft="80dp"
-            android:layout_gravity="bottom"
             android:layout_marginBottom="5dp"
             android:background="@drawable/mypage_btn"/>
+            <Button
+                android:id="@+id/log_out"
+                android:layout_width="74dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/mypage_logout"/>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="110dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="19dp"
-        android:orientation="horizontal">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="2dp"
+            android:layout_width="350dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="19dp"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/mypage_like"/>
-        <Button
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="2dp"
-            android:background="@drawable/mypage_schedule"/>
-    </LinearLayout>
+            android:text="1"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="80dp"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="9dp"
+        android:layout_gravity="center"
+        android:background="@drawable/mypage_schedule"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="80dp"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+
     <View
         android:layout_width="360dp"
         android:layout_gravity="center"
@@ -145,11 +177,5 @@
             android:layout_gravity="center"
             android:layout_height="1dp"
             android:background="#DDDDDD" />
-
-        <Button
-            android:id="@+id/log_out"
-            android:text="test용 로그아웃 버튼"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>
