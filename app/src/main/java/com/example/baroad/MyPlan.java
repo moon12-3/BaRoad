@@ -102,7 +102,7 @@ public class MyPlan extends Fragment {
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new MyPlanAdapter(planList);
+                        adapter = new MyPlanAdapter(planList, getActivity());
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(adapter);

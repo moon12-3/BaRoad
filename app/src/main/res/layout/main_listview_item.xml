@@ -9,12 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
             <ImageButton
+                android:id="@+id/go_detail"
                 android:layout_width="312dp"
                 android:layout_height="140dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/myplan_listview"/>
         <TextView
+            android:id="@+id/detail_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2023. 03. 12\n나고야 여행"

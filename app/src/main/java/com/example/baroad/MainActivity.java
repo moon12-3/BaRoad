@@ -53,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.frame, new MyPlan())
                         .commit();
                 break;
+            case 2 :
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.frame, new Myplan_map())
+//                        .commit();
+                break;
         }
     }
 
@@ -60,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public FragmentManager getFragmentMana() {
+        return getSupportFragmentManager();
     }
 
 }
