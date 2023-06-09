@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MainFragment()).commit();
                         break;
-//                    case R.id.around:
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LookAround()).commit();
-//                        break;
+                    case R.id.around:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LookAround()).commit();
+                        break;
                     case R.id.my_list:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MyPlan()).commit();
                         break;
