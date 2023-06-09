@@ -125,6 +125,7 @@
                 <Button
                     android:layout_width="154dp"
                     android:layout_height="210dp"
+                    android:id="@+id/aroud_post1"
                     android:background="@drawable/aroud_post1"/>
                     <Button
                         android:layout_width="24dp"
@@ -141,6 +142,7 @@
                     android:layout_width="154dp"
                     android:layout_height="210dp"
                     android:layout_marginLeft="25dp"
+                    android:id="@+id/aroud_post2"
                     android:background="@drawable/aroud_post2"/>
                     <Button
                         android:layout_width="24dp"
@@ -165,6 +167,7 @@
                     <Button
                         android:layout_width="154dp"
                         android:layout_height="210dp"
+                        android:id="@+id/aroud_post3"
                         android:background="@drawable/aroud_post3"/>
                     <Button
                         android:layout_width="24dp"
@@ -181,6 +184,7 @@
                         android:layout_width="154dp"
                         android:layout_height="210dp"
                         android:layout_marginLeft="25dp"
+                        android:id="@+id/aroud_post4"
                         android:background="@drawable/aroud_post4"/>
                     <Button
                         android:layout_width="24dp"
@@ -205,6 +209,7 @@
                     <Button
                         android:layout_width="154dp"
                         android:layout_height="210dp"
+                        android:id="@+id/aroud_post5"
                         android:background="@drawable/aroud_post5"/>
                     <Button
                         android:layout_width="24dp"
@@ -221,6 +226,7 @@
                         android:layout_width="154dp"
                         android:layout_height="210dp"
                         android:layout_marginLeft="25dp"
+                        android:id="@+id/aroud_post6"
                         android:background="@drawable/aroud_post6"/>
                     <Button
                         android:layout_width="24dp"
