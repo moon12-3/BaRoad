@@ -37,12 +37,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <Button
-            android:layout_width="74dp"
-            android:layout_height="34dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/mypage_btn"/>
+            <Button
+                android:layout_width="74dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/mypage_btn"/>
             <Button
                 android:id="@+id/log_out"
                 android:layout_width="74dp"
@@ -75,12 +75,12 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <Button
-        android:layout_width="350dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="9dp"
-        android:layout_gravity="center"
-        android:background="@drawable/mypage_schedule"/>
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="9dp"
+            android:layout_gravity="center"
+            android:background="@drawable/mypage_schedule"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,11 +130,11 @@
                 android:gravity="left|center_vertical"
                 style="?android:attr/borderlessButtonStyle"/>
         </LinearLayout>
-    <View
-        android:layout_width="360dp"
-        android:layout_gravity="center"
-        android:layout_height="1dp"
-        android:background="#DDDDDD" />
+        <View
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
