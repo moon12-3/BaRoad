@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="마이페이지"
+        android:text="내 일정"
         android:textColor="#5252A1"
         android:textStyle="bold"
         android:textSize="20dp"
