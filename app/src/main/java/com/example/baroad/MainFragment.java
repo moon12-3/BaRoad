@@ -89,7 +89,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-        ImageButton gotoMyplan = view.findViewById(R.id.gotoMyplan);
+        Button gotoMyplan = view.findViewById(R.id.gotoMyplan);
         gotoMyplan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
