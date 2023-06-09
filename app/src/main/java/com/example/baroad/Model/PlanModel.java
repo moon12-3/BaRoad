@@ -1,4 +1,4 @@
-package com.example.baroad;
+package com.example.baroad.Model;
 
 public class PlanModel {
     public String date;

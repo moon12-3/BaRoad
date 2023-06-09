@@ -247,7 +247,8 @@
                 android:textSize="18dp"
                 android:textColor="#616161"
                 android:textStyle="bold"/>
-            <ListView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"/>

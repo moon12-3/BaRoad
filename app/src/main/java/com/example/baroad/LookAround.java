@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.baroad.databinding.FragmentLookAroundBinding;
+
 public class LookAround extends Fragment {
 
 
@@ -20,6 +22,8 @@ public class LookAround extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_look_around, container, false);
+
+        FragmentLookAroundBinding binding = FragmentLookAroundBinding.bind(view);
 
         Button aroud_post1 = view.findViewById(R.id.aroud_post1);
         aroud_post1.setOnClickListener(new View.OnClickListener() {
