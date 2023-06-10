@@ -1,4 +1,4 @@
-package com.example.baroad;
+package com.example.baroad.Apdater;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.baroad.MainActivity;
+import com.example.baroad.Model.PlanModel;
+import com.example.baroad.R;
 import com.example.baroad.databinding.MainListviewItemBinding;
 
 import java.util.List;
-
-public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder> {
+public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.ViewHolder> {
     private List<PlanModel> dataList;
     private FragmentActivity activity;
 
@@ -39,7 +41,7 @@ public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder
         }
     }
 
-    public MyPlanAdapter(List<PlanModel> dataList, FragmentActivity activity) {
+    public MyLovePostAdapter(List<PlanModel> dataList, FragmentActivity activity) {
         this.dataList = dataList;
         this.activity = activity;
     }

@@ -1,4 +1,4 @@
-package com.example.baroad;
+package com.example.baroad.Model;
 
 public class UserModel {
     String profile = "";
