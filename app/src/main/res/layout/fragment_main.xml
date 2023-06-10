@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginBottom="55dp"
     tools:context=".MainFragment">
 
     <ScrollView
@@ -185,6 +186,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="?android:attr/borderlessButtonStyle"
                 android:backgroundTint="#ffffff"
                 android:id="@+id/gotoMyplan"
                 android:text="더보기"

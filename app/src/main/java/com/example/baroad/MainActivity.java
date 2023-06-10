@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.home :
+                    case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MainFragment()).commit();
                         break;
-                    case R.id.map:
+                    case R.id.around:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LookAround()).commit();
                         break;
                     case R.id.my_list:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MyPlan()).commit();
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.frame, new MyPlan())
                         .commit();
                 break;
-            case 2 :
+            case 2:
 //                getSupportFragmentManager().beginTransaction()
 //                        .replace(R.id.frame, new Myplan_map())
 //                        .commit();
@@ -70,4 +71,10 @@ public class MainActivity extends AppCompatActivity {
         return getSupportFragmentManager();
     }
 
+    public void replaceFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }

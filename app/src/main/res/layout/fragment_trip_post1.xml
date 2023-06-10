@@ -5,10 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="55dp"
     tools:context=".TripPost1">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,7 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="25dp">
+            android:layout_marginLeft="25dp"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -163,7 +166,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="25dp">
+                    android:layout_marginLeft="25dp"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -230,7 +234,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="25dp">
+                    android:layout_marginLeft="25dp"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -297,7 +302,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|top"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="25dp">
+                    android:layout_marginLeft="25dp"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -330,7 +336,8 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/addbtn"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp"/>
 </LinearLayout>
     </ScrollView>
 </LinearLayout>

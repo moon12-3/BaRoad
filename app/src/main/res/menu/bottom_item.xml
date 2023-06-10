@@ -6,7 +6,7 @@
         android:icon="@drawable/house"
         android:title="홈" />
     <item
-        android:id="@+id/user"
+        android:id="@+id/around"
         android:enabled="true"
         android:icon="@drawable/notepad"
         android:title="둘러보기"/>
