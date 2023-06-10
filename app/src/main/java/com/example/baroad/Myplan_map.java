@@ -73,9 +73,9 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_myplan_map, container, false);
-/*
-        SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager()
+        View view = inflater.inflate(R.layout.fragment_myplan_map, null, false);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.mymap);
         mapFragment.getMapAsync(this);
 
@@ -103,8 +103,6 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback {
 
             }
         }
-
- */
         return view;
     }
 
