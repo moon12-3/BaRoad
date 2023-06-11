@@ -3,6 +3,8 @@ package com.example.baroad;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
 import android.location.Address;
@@ -27,6 +29,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.baroad.Apdater.MyPlanAdapter;
+import com.example.baroad.Apdater.MymapAdapter;
+import com.example.baroad.Model.MapModel;
+import com.example.baroad.databinding.FragmentMyplanMapBinding;
+import com.example.baroad.databinding.MymapLocationBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -52,6 +59,9 @@ import java.util.List;
 
 public class Myplan_map extends Fragment implements OnMapReadyCallback {
 
+    private RecyclerView recyclerView;
+    private MymapAdapter adapter;
+
     private GoogleMap mMap;
     private EditText searchBox;
 
@@ -65,43 +75,43 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback {
     List<Polyline> polylines;
 
     ArrayList<String> testTitles;
-    LinearLayout planPlace;
     ImageView PlanBtn, BkmBtn, plusplan;
     TextView planText, planBtnt, bkmBtnt;
+
+    ArrayList<MapModel> maplist;
+    FragmentMyplanMapBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_myplan_map, null, false);
+        View view = inflater.inflate(R.layout.fragment_myplan_map, container, false);
+        binding = FragmentMyplanMapBinding.bind(view);
 
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.mymap);
         mapFragment.getMapAsync(this);
 
-        testTitles = new ArrayList<>();
-        testTitles.add("나고야 역");
-        testTitles.add("나고야 성");
-        testTitles.add("나고야시 과학관, 미술관");
-        testTitles.add("오스 상점가");
-        testTitles.add("사카에 지역");
-        testTitles.add("이자카야 고미토리 본점");
+        maplist = new ArrayList<>();
+        maplist.add( new MapModel("나고야 역", "1 Chome-1-4 Meieki, Nakamura Ward, Nagoya, Aichi", new LatLng(35.171186585151005, 136.88150238057705)));
+        maplist.add( new MapModel("나고야 성", "1-1 Honmaru, Naka Ward, Nagoya, Aichi 460-0031", new LatLng(35.18516093401206, 136.89966616399312)));
+        maplist.add( new MapModel("나고야시 과학관, 미술관", "일본 〒460-0008 Aichi, Nagoya, Naka Ward, Sakae, 2 Chome−17−1 芸術と科学の杜・白川公園内", new LatLng(35.16690110207503, 136.8996596839704)));
+        maplist.add( new MapModel("오스 상점가", "Osu, Naka Ward, Nagoya, Aichi 460-0011", new LatLng(35.159220557056415, 136.90344139325344)));
+        maplist.add( new MapModel("사카에 지역", "3 Chome-5-12先 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.170141721069506, 136.90823520978492)));
+        maplist.add( new MapModel("이자카야 고미토리 본점", "3 Chome-9-13 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.16744887508762, 136.90458910859599)));
 
-        for (String a : testTitles) {// 검색창에서 텍스트를 가져온다
-            String searchText = a;
+        recyclerView = binding.locRecy;
+        adapter = new MymapAdapter(maplist, getActivity());
+        adapter = new MymapAdapter(maplist, getActivity());
 
-            Geocoder geocoder = new Geocoder(getActivity().getBaseContext());
-            List<Address> addresses = null;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
 
-            try {
-                addresses = geocoder.getFromLocationName(searchText, 3);
-                if (addresses != null && !addresses.equals(" ")) {
-                    mMarkerPoints.add(searchText);
-                    search(addresses, searchText);
-                }
-            } catch (Exception e) {
+        for (MapModel map : maplist) {// 검색창에서 텍스트를 가져온다
 
-            }
+            addPath(map.location);
+            //drawPath();
+
         }
         return view;
     }

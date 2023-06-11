@@ -12,7 +12,7 @@
         android:layout_weight="1">
         <fragment
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/mymap"
             tools:context=".MapsActivity"
             android:name="com.google.android.gms.maps.SupportMapFragment" />
@@ -66,7 +66,8 @@
                     android:layout_height="wrap_content">
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="50dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -76,257 +77,13 @@
                             android:src="@drawable/line2"
                             android:paddingBottom="65dp"/>
 
-                        <LinearLayout
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/loc_recy"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-
-                            <!-- 1 -->
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginBottom="50dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/position_icon"
-                                    android:gravity="center"
-                                    android:text="1"
-                                    android:textAlignment="center"
-                                    android:textColor="@color/white" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="15dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="나고야 역"
-                                        android:textColor="#2A2A2A"
-                                        android:textSize="17sp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="1 Chome-1-4 Meieki, Nakamura Ward, Nagoya, Aichi"
-                                        android:textColor="#949494"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <!-- 2 -->
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginBottom="50dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/position_icon"
-                                    android:gravity="center"
-                                    android:text="2"
-                                    android:textAlignment="center"
-                                    android:textColor="@color/white" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="15dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="나고야 성"
-                                        android:textColor="#2A2A2A"
-                                        android:textSize="17sp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="1-1 Honmaru, Naka Ward, Nagoya, Aichi 460-0031"
-                                        android:textColor="#949494"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-
-                            <!-- 3 -->
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginBottom="50dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/position_icon"
-                                    android:gravity="center"
-                                    android:text="3"
-                                    android:textAlignment="center"
-                                    android:textColor="@color/white" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="15dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="나고야시 과학관, 미술관"
-                                        android:textColor="#2A2A2A"
-                                        android:textSize="17sp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="일본 〒460-0008 Aichi, Nagoya, Naka Ward, Sakae, 2 Chome−17−1 芸術と科学の杜・白川公園内"
-                                        android:textColor="#949494"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-
-                            <!-- 4 -->
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginBottom="50dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/position_icon"
-                                    android:gravity="center"
-                                    android:text="4"
-                                    android:textAlignment="center"
-                                    android:textColor="@color/white" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="15dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="오스 상점가"
-                                        android:textColor="#2A2A2A"
-                                        android:textSize="17sp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Osu, Naka Ward, Nagoya, Aichi 460-0011"
-                                        android:textColor="#949494"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-
-                            <!-- 5 -->
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginBottom="50dp"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/position_icon"
-                                    android:gravity="center"
-                                    android:text="5"
-                                    android:textAlignment="center"
-                                    android:textColor="@color/white" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="15dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="사카에 지역"
-                                        android:textColor="#2A2A2A"
-                                        android:textSize="17sp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="3 Chome-5-12先 Sakae, Naka Ward, Nagoya, Aichi 460-0008"
-                                        android:textColor="#949494"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-
-                            <!-- 6 -->
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginBottom="50dp"
-                                android:orientation="horizontal">
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/position_icon"
-                                    android:gravity="center"
-                                    android:text="6"
-                                    android:textAlignment="center"
-                                    android:textColor="@color/white" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="15dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="이자카야 고미토리 본점"
-                                        android:textColor="#2A2A2A"
-                                        android:textSize="17sp" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="3 Chome-9-13 Sakae, Naka Ward, Nagoya, Aichi 460-0008"
-                                        android:textColor="#949494"
-                                        android:textSize="13sp" />
-                                </LinearLayout>
-                            </LinearLayout>
-
-                        </LinearLayout>
+                        </androidx.recyclerview.widget.RecyclerView>
                     </FrameLayout>
 
                 </ScrollView>
