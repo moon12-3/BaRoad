@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentResultListener;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
@@ -16,6 +17,7 @@ import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -117,7 +119,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         maplist.add( new MapModel("나고야시 과학관, 미술관", "일본 〒460-0008 Aichi, Nagoya, Naka Ward, Sakae, 2 Chome−17−1 芸術と科学の杜・白川公園内", new LatLng(35.16690110207503, 136.8996596839704)));
         maplist.add( new MapModel("오스 상점가", "Osu, Naka Ward, Nagoya, Aichi 460-0011", new LatLng(35.159220557056415, 136.90344139325344)));
         maplist.add( new MapModel("사카에 지역", "3 Chome-5-12先 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.170141721069506, 136.90823520978492)));
-        maplist.add( new MapModel("이자카야 고미토리 본점", "3 Chome-9-13 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.16744887508762, 136.90458910859599)));
+        maplist.add( new MapModel("이자카야 Gomitori Honten", "3 Chome-9-13 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.16744887508762, 136.90458910859599)));
 
         recyclerView = binding.locRecy;
         adapter = new MymapAdapter(maplist, getActivity());
@@ -126,31 +128,69 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
-        for (MapModel map : maplist) {// 검색창에서 텍스트를 가져온다
-
-            addPath(map.location);
-            //drawPath();
-
-        }
         return view;
+    }
+
+    @Override
+    public void onMapReady(final GoogleMap googleMap) {
+
+        mMap = googleMap;
+/*
+        MarkerOptions markerOptions = new MarkerOptions();
+        LatLng P = new LatLng(35.17731148171244, 136.90706992119397);
+        markerOptions.position(P);
+        markerOptions.title("나고야시");
+        //markerOptions.snippet("나고야시");
+        mMap.addMarker(markerOptions);
+        addPath(P);
+        // 기존에 사용하던 다음 2줄은 문제가 있습니다.
+        // CameraUpdateFactory.zoomTo가 오동작하네요.
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
+        //mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(P, 18));
+*/
+
+
+
+        Geocoder geocoder = new Geocoder(getActivity().getBaseContext());
+        List<Address> addresses = null;
+
+        for (MapModel map : maplist) {// 검색창에서 텍스트를 가져온다
+            /*
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(map.location);
+            markerOptions.title(map.name);
+            markerOptions.snippet(map.detail);
+            mMap.addMarker(markerOptions);
+            addPath(map.location);
+            drawPath();
+             */
+
+            try {
+                addresses = geocoder.getFromLocationName(map.name, 3);
+                if (addresses != null && !addresses.equals(" ")) {
+                    search(addresses, map.name);
+                }else
+                    Log.d("TEST", map.name);
+            } catch(Exception e) {
+                Log.d("TEST", map.name);
+            }
+        }
+
+
     }
 
     // 구글맵 주소 검색 메서드
     protected void search(List<Address> addresses, String t) {
         Address address = addresses.get(0);
+        String t2 = address.getAddressLine(0);
         LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-        LatLng P = new LatLng(35.17731148171244, 136.90706992119397);
-        String addressText = String.format(
-                "%s, %s",
-                address.getMaxAddressLineIndex() > 0 ? address
-                        .getAddressLine(0) : " ", address.getFeatureName());
         Location a = new Location("a");
-        Location b = new Location("b");
         a.setLatitude(latLng.latitude);
-        b.setLatitude(P.latitude);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title(t);
+        markerOptions.snippet(t2);
         // float res = a.distanceTo(b);
         //markerOptions.snippet(res+"");
 
@@ -163,33 +203,15 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         drawPath();
 
     }
-    @Override
-    public void onMapReady(final GoogleMap googleMap) {
-
-        mMap = googleMap;
-
-        MarkerOptions markerOptions = new MarkerOptions();
-        LatLng P = new LatLng(35.17731148171244, 136.90706992119397);
-        markerOptions.position(P);
-        //markerOptions.title("나고야시");
-        //markerOptions.snippet("나고야시");
-        // mMap.addMarker(markerOptions);
-
-        // 기존에 사용하던 다음 2줄은 문제가 있습니다.
-        // CameraUpdateFactory.zoomTo가 오동작하네요.
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(P, 18));
-
-    }
     private void addPath(LatLng newlat){        //polyline을 그려주는 메소드
         options.add(newlat);
 
     }
     private void drawPath(){        //polyline을 그려주는 메소드
-        options.width(5).color(R.color.mycolor).geodesic(true);
-        polylines.add(mMap.addPolyline(options));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(options.getPoints().get(1), 13));
+        Resources resources = getResources();
+        options.width(5).color(resources.getColor(R.color.mycolor)).geodesic(true);
+        mMap.addPolyline(options);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(options.getPoints().get(0), 13));
     }
 
     @Override
