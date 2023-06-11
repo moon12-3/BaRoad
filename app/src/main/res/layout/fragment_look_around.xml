@@ -85,6 +85,7 @@
                 <Button
                     android:layout_width="49dp"
                     android:layout_height="28dp"
+                    android:id="@+id/spring"
                     android:background="@drawable/aroud_spring"/>
                 <Button
                     android:layout_width="49dp"
@@ -218,6 +219,7 @@
                     <Button
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:id="@+id/heart"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
