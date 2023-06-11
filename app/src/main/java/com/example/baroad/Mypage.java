@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -105,6 +106,23 @@ public class Mypage extends Fragment {
         spannableString.setSpan(new RelativeSizeSpan(1.3f), start2, end2, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(spannableString);
+
+        Button mypage_like = view.findViewById(R.id.mypage_like);
+        mypage_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replaceFragment(Mypage_like.newInstance());
+            }
+        });
+
+        Button mypage_plan = view.findViewById(R.id.mypage_plan);
+        mypage_plan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replaceFragment(Mypage_plan.newInstance());
+            }
+        });
+
         return view;
     }
 }
