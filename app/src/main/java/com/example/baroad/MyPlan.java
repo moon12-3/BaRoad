@@ -110,7 +110,7 @@ public class MyPlan extends Fragment {
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new MyPlanAdapter(planList, getActivity());
+                        adapter = new MyPlanAdapter(planList, getActivity(), getParentFragmentManager());
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(adapter);

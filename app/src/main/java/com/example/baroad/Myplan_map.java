@@ -1,10 +1,12 @@
 package com.example.baroad;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentResultListener;
 
 import android.graphics.Color;
 import android.location.Address;
@@ -34,6 +36,7 @@ import com.example.baroad.Apdater.MymapAdapter;
 import com.example.baroad.Model.MapModel;
 import com.example.baroad.databinding.FragmentMyplanMapBinding;
 import com.example.baroad.databinding.MymapLocationBinding;
+import com.example.baroad.databinding.FragmentMyplanMapBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -57,7 +60,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class Myplan_map extends Fragment implements OnMapReadyCallback {
+public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPressedListener {
 
     private RecyclerView recyclerView;
     private MymapAdapter adapter;
@@ -73,13 +76,26 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback {
     ArrayList<ArrayList> myBookMark;
     PolylineOptions options = new PolylineOptions();
     List<Polyline> polylines;
+    private FragmentMyplanMapBinding binding;
 
     ArrayList<String> testTitles;
     ImageView PlanBtn, BkmBtn, plusplan;
     TextView planText, planBtnt, bkmBtnt;
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                String date = bundle.getString("date");
+                String local = bundle.getString("local");
+                binding.title.setText(date + " " + local);
+            }
+        });
+    }
+
     ArrayList<MapModel> maplist;
-    FragmentMyplanMapBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,6 +103,9 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_myplan_map, container, false);
         binding = FragmentMyplanMapBinding.bind(view);
+
+        // title 변경
+
 
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.mymap);
@@ -171,5 +190,16 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback {
         options.width(5).color(R.color.mycolor).geodesic(true);
         polylines.add(mMap.addPolyline(options));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(options.getPoints().get(1), 13));
+    }
+
+    @Override
+    public void onBackPressed() {
+        ((MainActivity)getActivity()).changeFragment(1);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity)getActivity()).setOnBackPressedListener(this);
     }
 }

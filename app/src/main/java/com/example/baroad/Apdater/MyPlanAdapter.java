@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.baroad.MainActivity;
@@ -18,6 +20,7 @@ import java.util.List;
 public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder> {
     private List<PlanModel> dataList;
     private FragmentActivity activity;
+    private FragmentManager fgManager;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private MainListviewItemBinding binding;
@@ -32,18 +35,18 @@ public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder
             binding.detailText.setText(s);
 
             binding.goDetail.setOnClickListener(v-> {
-                int mPos = getAdapterPosition();
-
                 Bundle result = new Bundle();
                 result.putString("date", schedule.date);
                 result.putString("local", schedule.local);
-                ((MainActivity)activity).getFragmentMana().setFragmentResult("requestKey", result);
+                fgManager.setFragmentResult("requestKey", result);
+                ((MainActivity)activity).changeFragment(2);
             });
         }
     }
 
-    public MyPlanAdapter(List<PlanModel> dataList, FragmentActivity activity) {
+    public MyPlanAdapter(List<PlanModel> dataList, FragmentActivity activity, FragmentManager fgManager) {
         this.dataList = dataList;
+        this.fgManager = fgManager;
         this.activity = activity;
     }
 

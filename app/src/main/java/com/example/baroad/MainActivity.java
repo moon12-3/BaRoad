@@ -12,8 +12,11 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottom;
+    OnBackPressedListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottom = findViewById(R.id.navigationView);
         getSupportFragmentManager().beginTransaction().add(R.id.frame, new MainFragment()).commit();
-
 
         bottom.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
@@ -54,10 +56,24 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
                 break;
             case 2:
-//                getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.frame, new Myplan_map())
-//                        .commit();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, new Myplan_map())
+
+                        .commit();
                 break;
+        }
+    }
+
+    public void setOnBackPressedListener(OnBackPressedListener listener){
+        this.listener = listener;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(listener!=null){
+            listener.onBackPressed();
+        }else{
+            super.onBackPressed();
         }
     }
 

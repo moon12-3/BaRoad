@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.baroad.MainActivity;
 import com.example.baroad.Model.PlanModel;
 import com.example.baroad.R;
+import com.example.baroad.databinding.AroudLikePostBinding;
 import com.example.baroad.databinding.MainListviewItemBinding;
 
 import java.util.List;
@@ -19,25 +20,15 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
     private FragmentActivity activity;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private MainListviewItemBinding binding;
+        private AroudLikePostBinding binding;
 
-        public ViewHolder(MainListviewItemBinding binding) {
+        public ViewHolder(AroudLikePostBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
 
         public void bind(PlanModel schedule) {
-            String s = schedule.date+"\n"+schedule.local+" 여행";
-            binding.detailText.setText(s);
 
-            binding.goDetail.setOnClickListener(v-> {
-                int mPos = getAdapterPosition();
-
-                Bundle result = new Bundle();
-                result.putString("date", schedule.date);
-                result.putString("local", schedule.local);
-                ((MainActivity)activity).getFragmentMana().setFragmentResult("requestKey", result);
-            });
         }
     }
 
@@ -50,7 +41,7 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(viewType, parent, false);
-        return new ViewHolder(MainListviewItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(AroudLikePostBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     // 삭제
@@ -71,6 +62,6 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.main_listview_item;
+        return R.layout.aroud_like_post;
     }
 }
