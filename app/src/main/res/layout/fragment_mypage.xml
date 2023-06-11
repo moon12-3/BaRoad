@@ -13,7 +13,7 @@
         android:text="마이페이지"
         android:textColor="#5252A1"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="23dp"
         android:layout_marginTop="55dp"
         android:layout_marginLeft="24dp"/>
     <LinearLayout
@@ -60,6 +60,7 @@
             android:layout_width="350dp"
             android:layout_height="65dp"
             android:layout_marginTop="19dp"
+            android:id="@+id/mypage_like"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/mypage_like"/>
         <TextView
@@ -81,6 +82,7 @@
             android:layout_height="65dp"
             android:layout_marginTop="9dp"
             android:layout_gravity="center"
+            android:id="@+id/mypage_plan"
             android:background="@drawable/mypage_schedule"/>
         <TextView
             android:layout_width="wrap_content"
