@@ -9,15 +9,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.baroad.MainActivity;
-import com.example.baroad.Model.PlanModel;
+import com.example.baroad.Model.PostModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.AroudLikePostBinding;
 import com.example.baroad.databinding.MainListviewItemBinding;
 
 import java.util.List;
 public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.ViewHolder> {
-    private List<PlanModel> dataList;
-    private FragmentActivity activity;
+    private List<PostModel> dataList;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private AroudLikePostBinding binding;
@@ -27,14 +26,13 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
             this.binding = binding;
         }
 
-        public void bind(PlanModel schedule) {
+        public void bind(PostModel post) {
 
         }
     }
 
-    public MyLovePostAdapter(List<PlanModel> dataList, FragmentActivity activity) {
+    public MyLovePostAdapter(List<PostModel> dataList) {
         this.dataList = dataList;
-        this.activity = activity;
     }
 
     @Override

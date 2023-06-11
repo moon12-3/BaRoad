@@ -128,6 +128,7 @@
                     android:id="@+id/aroud_post1"
                     android:background="@drawable/aroud_post1"/>
                     <Button
+                        android:id="@+id/post1_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
@@ -145,6 +146,7 @@
                     android:id="@+id/aroud_post2"
                     android:background="@drawable/aroud_post2"/>
                     <Button
+                        android:id="@+id/post2_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
@@ -170,6 +172,7 @@
                         android:id="@+id/aroud_post3"
                         android:background="@drawable/aroud_post3"/>
                     <Button
+                        android:id="@+id/post3_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
@@ -187,6 +190,7 @@
                         android:id="@+id/aroud_post4"
                         android:background="@drawable/aroud_post4"/>
                     <Button
+                        android:id="@+id/post1_heart4"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
@@ -251,7 +255,8 @@
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"/>
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

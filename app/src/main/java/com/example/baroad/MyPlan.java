@@ -95,7 +95,7 @@ public class MyPlan extends Fragment {
     private void setDB() {
         recyclerView = binding.container;
         String coll = "plan " + auth.getCurrentUser().getEmail();
-        Query docRef = db.collection(coll);
+        Query docRef = db.collection(coll).orderBy("date");
 
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
