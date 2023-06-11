@@ -6,6 +6,7 @@ public class PostModel {
     public ArrayList<String> season;
     public String pName;
     public long date;
+    public boolean heart;
 
     public PostModel(long date, String pName) {
         this.date = date;
@@ -16,5 +17,6 @@ public class PostModel {
         season = new ArrayList<>();
         pName = "나고야 여행 추천 코스";
         date = System.currentTimeMillis();
+        heart = true;
     }
 }

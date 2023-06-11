@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center">
+        <Button
+            android:layout_width="154dp"
+            android:layout_height="210dp"
+            android:background="@drawable/post"/>
+        <Button
+            android:id="@+id/post1_heart"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/fullheart"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="17dp"
+            android:layout_marginRight="15dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="00ff0000"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="40dp"
+            android:textStyle="normal"
+            android:textSize="10dp"
+            android:text="#봄 #여름 #가을 #겨울"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textAlignment="viewStart"
+            android:background="00ff0000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="left|bottom"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:text="나고야 중심부\n위주 코스 2"
+            tools:ignore="RtlCompat" />
+
+    </FrameLayout>
+</LinearLayout>
