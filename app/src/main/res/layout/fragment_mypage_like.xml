@@ -65,7 +65,10 @@
         android:text="최근 추가 순"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="24dp"/>
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/container"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"/>

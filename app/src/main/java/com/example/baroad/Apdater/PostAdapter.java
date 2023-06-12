@@ -12,6 +12,7 @@ import com.example.baroad.MainActivity;
 import com.example.baroad.Model.PostModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.AroudLikePostBinding;
+import com.example.baroad.databinding.AroundPostBinding;
 import com.example.baroad.databinding.MainListviewItemBinding;
 
 import java.util.List;
@@ -19,15 +20,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     private List<PostModel> dataList;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private AroudLikePostBinding binding;
+        private AroundPostBinding binding;
 
-        public ViewHolder(AroudLikePostBinding binding) {
+        public ViewHolder(AroundPostBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
 
         public void bind(PostModel post) {
-
+            binding.season.setText(post.season);
+            binding.title.setText(post.pName);
         }
     }
 
@@ -39,7 +41,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(viewType, parent, false);
-        return new ViewHolder(AroudLikePostBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(AroundPostBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     // 삭제
@@ -60,6 +62,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.aroud_like_post;
+        return R.layout.around_post;
     }
 }

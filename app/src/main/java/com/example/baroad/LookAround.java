@@ -67,7 +67,10 @@ public class LookAround extends Fragment {
         });
 
         binding.post1Heart.setOnClickListener(v-> {
-            setDB();
+            long date = System.currentTimeMillis();
+            PostModel postModel = new PostModel(date, "나고야 중심부 위주코스 1", "#봄 #여름 #가을 #겨울");
+
+            setDB(postModel);
         });
 
         Button aroud_post2 = view.findViewById(R.id.aroud_post2);
@@ -77,6 +80,14 @@ public class LookAround extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(TripPost2.newInstance());
             }
         });
+
+        binding.post2Heart.setOnClickListener(v-> {
+            long date = System.currentTimeMillis();
+            PostModel postModel = new PostModel(date, "나고야 중심부 위주코스 2", "#봄 #여름 #가을 #겨울");
+
+            setDB(postModel);
+        });
+
         Button aroud_post3 = view.findViewById(R.id.aroud_post3);
         aroud_post3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +95,14 @@ public class LookAround extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(TripPost3.newInstance());
             }
         });
+
+        binding.post3Heart.setOnClickListener(v-> {
+            long date = System.currentTimeMillis();
+            PostModel postModel = new PostModel(date, "나고야항 지역 코스 1", "#봄 #여름");
+
+            setDB(postModel);
+        });
+
         Button aroud_post4 = view.findViewById(R.id.aroud_post4);
         aroud_post4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,13 +111,18 @@ public class LookAround extends Fragment {
             }
         });
 
+        binding.post4Heart.setOnClickListener(v-> {
+            long date = System.currentTimeMillis();
+            PostModel postModel = new PostModel(date, "나고야항 지역 코스 2", "#봄 #여름");
+
+            setDB(postModel);
+        });
+
         return view;
     }
 
-    private void setDB() {
+    private void setDB(PostModel post) {
         long now = System.currentTimeMillis();
-        
-        PostModel post = new PostModel();
 
         String coll = "lovepost " + auth.getCurrentUser().getEmail();
         db.collection(coll).add(post)

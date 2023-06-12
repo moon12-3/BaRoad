@@ -191,13 +191,13 @@
                         android:id="@+id/aroud_post4"
                         android:background="@drawable/aroud_post4"/>
                     <Button
-                        android:id="@+id/post1_heart4"
+                        android:id="@+id/post4_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
-                        android:layout_marginRight="15dp"/>
+                        android:layout_marginRight="17dp"/>
                 </FrameLayout>
             </LinearLayout>
             <LinearLayout
@@ -219,7 +219,7 @@
                     <Button
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:id="@+id/heart"
+                        android:id="@+id/post5_heart"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
@@ -238,6 +238,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
+                        android:id="@+id/post6_heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>

@@ -27,7 +27,8 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
         }
 
         public void bind(PostModel post) {
-
+            binding.season.setText(post.season);
+            binding.title.setText(post.pName);
         }
     }
 

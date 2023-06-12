@@ -20,22 +20,25 @@
             android:layout_marginBottom="17dp"
             android:layout_marginRight="20dp"/>
         <Button
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:background="00ff0000"
+            android:background="#00ff0000"
             android:layout_marginLeft="20dp"
             android:textStyle="bold"
             android:textSize="14dp"
             android:text="나고야 중심부 위주 코스 2"/>
         <Button
+            android:id="@+id/season"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:background="00ff0000"
+            android:background="#00ff0000"
             android:layout_marginLeft="20dp"
-            android:layout_marginBottom="12dp"
+
             android:layout_gravity="center|left"
+            android:gravity="left"
             android:textStyle="bold"
             android:textSize="10dp"
             android:text="#봄 #여름 #가을 #겨울"/>
