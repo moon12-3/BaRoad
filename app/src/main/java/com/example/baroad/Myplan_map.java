@@ -3,13 +3,16 @@ package com.example.baroad;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentResultListener;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -18,7 +21,9 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
+import android.service.autofill.FieldClassification;
 import android.util.Log;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +35,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +49,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
@@ -61,6 +68,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.annotation.MatchesPattern;
+
 
 public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPressedListener {
 
@@ -68,21 +77,15 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     private MymapAdapter adapter;
 
     private GoogleMap mMap;
-    private EditText searchBox;
-
-    private LatLng mOrigin;
-    private LatLng mDestination;
-    private Polyline mPolyline;
-    HashMap<String, LatLng> mMarkerP;
-    ArrayList<String> mMarkerPoints;
-    ArrayList<ArrayList> myBookMark;
     PolylineOptions options = new PolylineOptions();
-    List<Polyline> polylines;
+
+    ArrayList<MapModel> maplist;
     private FragmentMyplanMapBinding binding;
 
-    ArrayList<String> testTitles;
-    ImageView PlanBtn, BkmBtn, plusplan;
-    TextView planText, planBtnt, bkmBtnt;
+    Bitmap newMarker;
+    ImageView LocLine;
+    private ImageButton searchButton;
+    private EditText searchBox;
 
     @Override
     public void onStart() {
@@ -97,21 +100,44 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         });
     }
 
-    ArrayList<MapModel> maplist;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_myplan_map, container, false);
         binding = FragmentMyplanMapBinding.bind(view);
-
-        // title 변경
-
-
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.mymap);
         mapFragment.getMapAsync(this);
+
+        searchButton = view.findViewById(R.id.searchbtn);
+        searchBox = view.findViewById(R.id.searchbox);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            // 검색창에서 텍스트를 가져온다
+                String searchText = searchBox.getText().toString();
+
+                Geocoder geocoder = new Geocoder(getActivity());
+                List<Address> addresses = null;
+
+                try {
+                    addresses = geocoder.getFromLocationName(searchText, 3);
+                    if (addresses != null && !addresses.equals(" ")) {
+                        search(addresses);
+                    }
+                } catch(Exception e) {
+
+                }
+            }
+        });
+
+        //마커 이미지
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.position_icon);
+        Bitmap b=bitmapdraw.getBitmap();
+        newMarker = Bitmap.createScaledBitmap(b, 40, 40, false);
+
+
+        LocLine = this.getActivity().findViewById(R.id.loc_line);
 
         maplist = new ArrayList<>();
         maplist.add( new MapModel("나고야 역", "1 Chome-1-4 Meieki, Nakamura Ward, Nagoya, Aichi", new LatLng(35.171186585151005, 136.88150238057705)));
@@ -135,70 +161,62 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     public void onMapReady(final GoogleMap googleMap) {
 
         mMap = googleMap;
-/*
-        MarkerOptions markerOptions = new MarkerOptions();
-        LatLng P = new LatLng(35.17731148171244, 136.90706992119397);
-        markerOptions.position(P);
-        markerOptions.title("나고야시");
-        //markerOptions.snippet("나고야시");
-        mMap.addMarker(markerOptions);
-        addPath(P);
-        // 기존에 사용하던 다음 2줄은 문제가 있습니다.
-        // CameraUpdateFactory.zoomTo가 오동작하네요.
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(P, 18));
-*/
-
-
-
-        Geocoder geocoder = new Geocoder(getActivity().getBaseContext());
-        List<Address> addresses = null;
-
-        for (MapModel map : maplist) {// 검색창에서 텍스트를 가져온다
-            /*
+        if(maplist.isEmpty()){
             MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.position(map.location);
-            markerOptions.title(map.name);
-            markerOptions.snippet(map.detail);
+            LatLng P = new LatLng(35.17731148171244, 136.90706992119397);
+            markerOptions.position(P);
+            markerOptions.title("나고야시");
             mMap.addMarker(markerOptions);
-            addPath(map.location);
-            drawPath();
-             */
-
-            try {
-                addresses = geocoder.getFromLocationName(map.name, 3);
-                if (addresses != null && !addresses.equals(" ")) {
-                    search(addresses, map.name);
-                }else
-                    Log.d("TEST", map.name);
-            } catch(Exception e) {
-                Log.d("TEST", map.name);
-            }
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(P, 18));
         }
 
+        else{
+
+            //Geocoder geocoder = new Geocoder(getActivity().getBaseContext());
+            //List<Address> addresses = null;
+
+            for (MapModel map : maplist) {// 검색창에서 텍스트를 가져온다
+
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(map.location);
+                markerOptions.title(map.name);
+                markerOptions.snippet(map.detail);
+                markerOptions.icon(BitmapDescriptorFactory.fromBitmap(newMarker));
+                mMap.addMarker(markerOptions);
+                addPath(map.location);
+                drawPath();
+/*
+                try {
+                    addresses = geocoder.getFromLocationName(map.name, 3);
+                    if (addresses != null && !addresses.equals(" ")) {
+                        search(addresses, map.name);
+                    }else
+                        Log.d("TEST", map.name);
+                } catch(Exception e) {
+                    Log.d("TEST", map.name);
+                }
+ */
+            }
+        }
 
     }
 
     // 구글맵 주소 검색 메서드
-    protected void search(List<Address> addresses, String t) {
+    protected void search(List<Address> addresses) {
         Address address = addresses.get(0);
-        String t2 = address.getAddressLine(0);
-        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+        String t = address.getFeatureName(); //장소 이름
+        String t2 = address.getAddressLine(0); //상세주소
+        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude()); // 경도, 위도
         Location a = new Location("a");
         a.setLatitude(latLng.latitude);
         MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(newMarker));
         markerOptions.position(latLng);
         markerOptions.title(t);
         markerOptions.snippet(t2);
-        // float res = a.distanceTo(b);
-        //markerOptions.snippet(res+"");
 
         mMap.addMarker(markerOptions);
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
         addPath(latLng);
         drawPath();
 

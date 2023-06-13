@@ -40,7 +40,6 @@
                         android:paddingLeft="30dp"
                         android:paddingTop="30dp"
                         android:paddingBottom="20dp"
-                        android:text="2023. 03. 12 나고야 여행"
                         android:textColor="#2A2A2A"
                         android:textSize="20sp" />
 
@@ -71,6 +70,7 @@
                         android:layout_marginBottom="50dp">
 
                         <ImageView
+                            android:id="@+id/loc_line"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="49dp"
@@ -91,7 +91,6 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
         <EditText
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
