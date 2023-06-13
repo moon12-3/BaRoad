@@ -15,6 +15,7 @@ import com.example.baroad.MainActivity;
 import com.example.baroad.Model.PlanModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.MainListviewItemBinding;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.List;
 
@@ -63,6 +64,8 @@ public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder
         dataList.remove(position);
         notifyItemRemoved(position);
     }
+
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {

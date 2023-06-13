@@ -14,6 +14,7 @@
             android:layout_height="115dp"
             android:background="@drawable/like_img"/>
         <Button
+            android:id="@+id/heart"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/fullheart"

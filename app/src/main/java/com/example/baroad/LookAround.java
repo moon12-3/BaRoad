@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -67,9 +68,9 @@ public class LookAround extends Fragment {
         });
 
         binding.post1Heart.setOnClickListener(v-> {
+            binding.fullHeart1.setVisibility(View.VISIBLE);
             long date = System.currentTimeMillis();
             PostModel postModel = new PostModel(date, "나고야 중심부 위주코스 1", "#봄 #여름 #가을 #겨울", 1);
-
             setDB(postModel);
         });
 
@@ -125,11 +126,10 @@ public class LookAround extends Fragment {
         long now = System.currentTimeMillis();
 
         String coll = "lovepost " + auth.getCurrentUser().getEmail();
-        db.collection(coll).add(post)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection(coll).document(post.pId).set(post)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("mytag", "DocumentSnapshot successfully written!");
+                    public void onSuccess(Void unused) {
                         Toast.makeText(getActivity(), "좋아요", Toast.LENGTH_SHORT).show();
                         getDB();
                     }
@@ -154,18 +154,37 @@ public class LookAround extends Fragment {
                         List<PostModel> postList = new ArrayList<>();
 
                         postList.clear();
+                        binding.fullHeart1.setVisibility(View.GONE);
+                        binding.fullHeart2.setVisibility(View.GONE);
+                        binding.fullHeart3.setVisibility(View.GONE);
+                        binding.fullHeart4.setVisibility(View.GONE);
                         for (QueryDocumentSnapshot document : querySnapshot) {
                             PostModel post = document.toObject(PostModel.class);
                             postList.add(post);
+                            switch (post.postIdx) {
+                                case 1 : binding.fullHeart1.setVisibility(View.VISIBLE); break;
+                                case 2 : binding.fullHeart2.setVisibility(View.VISIBLE); break;
+                                case 3 : binding.fullHeart3.setVisibility(View.VISIBLE); break;
+                                case 4 : binding.fullHeart4.setVisibility(View.VISIBLE); break;
+                            }
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new MyLovePostAdapter(postList, getActivity());
+                        adapter = new MyLovePostAdapter(
+                                postList,
+                                getActivity()
+                        );
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(adapter);
                         recyclerView.setHasFixedSize(true);
+
                     }
                 });
+    }
+
+    public void delete(DocumentSnapshot todo) {
+        String coll = "lovepost " + auth.getCurrentUser().getEmail();
+        db.collection(coll).document(todo.getId()).delete();
     }
 }

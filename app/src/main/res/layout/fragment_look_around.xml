@@ -136,6 +136,15 @@
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>
+                    <Button
+                        android:id="@+id/full_heart1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -154,6 +163,15 @@
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>
+                    <Button
+                        android:id="@+id/full_heart2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
             </LinearLayout>
             <LinearLayout
@@ -180,6 +198,15 @@
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>
+                    <Button
+                        android:id="@+id/full_heart3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -198,6 +225,15 @@
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="17dp"/>
+                    <Button
+                        android:id="@+id/full_heart4"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="16dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
             </LinearLayout>
             <LinearLayout

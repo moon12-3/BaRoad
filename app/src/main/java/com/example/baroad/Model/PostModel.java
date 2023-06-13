@@ -7,6 +7,8 @@ public class PostModel {
     public String pName;
     public long date;
 
+    public String pId;
+
     public int postIdx;
 
     public PostModel(long date, String pName, String season, int postIdx) {
@@ -14,6 +16,7 @@ public class PostModel {
         this.pName = pName;
         this.season = season;
         this.postIdx = postIdx;
+        pId = "document"+postIdx;
     }
 
     public PostModel() {

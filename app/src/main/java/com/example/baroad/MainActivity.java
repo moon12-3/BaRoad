@@ -58,9 +58,13 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame, new Myplan_map())
-
                         .commit();
                 break;
+            case 3 :
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, new LookAround())
+                        .commit();
+
         }
     }
 

@@ -14,11 +14,16 @@ import com.example.baroad.Model.PostModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.AroudLikePostBinding;
 import com.example.baroad.databinding.MainListviewItemBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.ViewHolder> {
     private List<PostModel> dataList;
     private Activity mainActivity;
+
+    private FirebaseFirestore  db = FirebaseFirestore.getInstance();
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private AroudLikePostBinding binding;
@@ -34,6 +39,11 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
 
             binding.lovePost.setOnClickListener(v-> {
                 ((MainActivity)mainActivity).replacePost(post.postIdx);
+            });
+
+            binding.heart.setOnClickListener(v-> {
+                delete(post.pId);
+                removeData(getAdapterPosition());
             });
         }
     }
@@ -54,6 +64,11 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
     public void removeData(int position) {
         dataList.remove(position);
         notifyItemRemoved(position);
+    }
+
+    public void delete(String pId) {
+        String coll = "lovepost " + auth.getCurrentUser().getEmail();
+        db.collection(coll).document(pId).delete();
     }
 
     @Override
