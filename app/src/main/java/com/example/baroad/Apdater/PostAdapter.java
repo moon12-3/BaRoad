@@ -1,5 +1,6 @@
 package com.example.baroad.Apdater;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.example.baroad.databinding.MainListviewItemBinding;
 import java.util.List;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     private List<PostModel> dataList;
+    private Activity mainActivity;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private AroundPostBinding binding;
@@ -30,11 +32,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public void bind(PostModel post) {
             binding.season.setText(post.season);
             binding.title.setText(post.pName);
+
+            binding.lovePost.setOnClickListener(v-> {
+                ((MainActivity)mainActivity).replacePost(post.postIdx);
+            });
         }
     }
 
-    public PostAdapter(List<PostModel> dataList) {
+    public PostAdapter(List<PostModel> dataList, Activity activity) {
         this.dataList = dataList;
+        mainActivity = activity;
+
     }
 
     @Override

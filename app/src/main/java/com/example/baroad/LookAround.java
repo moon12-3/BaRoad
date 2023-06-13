@@ -62,13 +62,13 @@ public class LookAround extends Fragment {
         aroud_post1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(TripPost1.newInstance());
+                ((MainActivity)getActivity()).replacePost(1);
             }
         });
 
         binding.post1Heart.setOnClickListener(v-> {
             long date = System.currentTimeMillis();
-            PostModel postModel = new PostModel(date, "나고야 중심부 위주코스 1", "#봄 #여름 #가을 #겨울");
+            PostModel postModel = new PostModel(date, "나고야 중심부 위주코스 1", "#봄 #여름 #가을 #겨울", 1);
 
             setDB(postModel);
         });
@@ -77,13 +77,13 @@ public class LookAround extends Fragment {
         aroud_post2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(TripPost2.newInstance());
+                ((MainActivity)getActivity()).replacePost(2);
             }
         });
 
         binding.post2Heart.setOnClickListener(v-> {
             long date = System.currentTimeMillis();
-            PostModel postModel = new PostModel(date, "나고야 중심부 위주코스 2", "#봄 #여름 #가을 #겨울");
+            PostModel postModel = new PostModel(date, "나고야 중심부 위주코스 2", "#봄 #여름 #가을 #겨울", 2);
 
             setDB(postModel);
         });
@@ -92,13 +92,13 @@ public class LookAround extends Fragment {
         aroud_post3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(TripPost3.newInstance());
+                ((MainActivity)getActivity()).replacePost(3);
             }
         });
 
         binding.post3Heart.setOnClickListener(v-> {
             long date = System.currentTimeMillis();
-            PostModel postModel = new PostModel(date, "나고야항 지역 코스 1", "#봄 #여름");
+            PostModel postModel = new PostModel(date, "나고야항 지역 코스 1", "#봄 #여름", 3);
 
             setDB(postModel);
         });
@@ -107,13 +107,13 @@ public class LookAround extends Fragment {
         aroud_post4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(TripPost4.newInstance());
+                ((MainActivity)getActivity()).replacePost(4);
             }
         });
 
         binding.post4Heart.setOnClickListener(v-> {
             long date = System.currentTimeMillis();
-            PostModel postModel = new PostModel(date, "나고야항 지역 코스 2", "#봄 #여름");
+            PostModel postModel = new PostModel(date, "나고야항 지역 코스 2", "#봄 #여름", 4);
 
             setDB(postModel);
         });
@@ -130,7 +130,7 @@ public class LookAround extends Fragment {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d("mytag", "DocumentSnapshot successfully written!");
-                        Toast.makeText(getActivity(), "조하요", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "좋아요", Toast.LENGTH_SHORT).show();
                         getDB();
                     }
                 })
@@ -160,7 +160,7 @@ public class LookAround extends Fragment {
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new MyLovePostAdapter(postList);
+                        adapter = new MyLovePostAdapter(postList, getActivity());
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(adapter);

@@ -7,15 +7,19 @@ public class PostModel {
     public String pName;
     public long date;
 
-    public PostModel(long date, String pName, String season) {
+    public int postIdx;
+
+    public PostModel(long date, String pName, String season, int postIdx) {
         this.date = date;
         this.pName = pName;
         this.season = season;
+        this.postIdx = postIdx;
     }
 
     public PostModel() {
         season = "#봄 #여름 #가을 #겨울";
         pName = "나고야 여행 추천 코스";
         date = System.currentTimeMillis();
+        postIdx = 1;
     }
 }

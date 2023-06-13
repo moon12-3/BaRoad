@@ -75,7 +75,7 @@ public class Mypage_like extends Fragment {
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new PostAdapter(postList);
+                        adapter = new PostAdapter(postList, getActivity());
 
                         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
                         recyclerView.setLayoutManager(gridLayoutManager);

@@ -10,6 +10,7 @@
         android:layout_marginBottom="10dp"
         android:layout_gravity="center">
         <Button
+            android:id="@+id/love_post"
             android:layout_width="154dp"
             android:layout_height="210dp"
             android:background="@drawable/post"/>

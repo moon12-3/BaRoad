@@ -93,4 +93,23 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    public void replacePost(int index) {
+        Fragment fragment = TripPost1.newInstance();
+        switch (index) {
+            case 2:
+                fragment = TripPost2.newInstance();
+                break;
+            case 3:
+                fragment = TripPost3.newInstance();
+                break;
+            case 4:
+                fragment = TripPost4.newInstance();
+                break;
+        }
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }
