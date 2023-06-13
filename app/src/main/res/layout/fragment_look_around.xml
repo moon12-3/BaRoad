@@ -85,6 +85,7 @@
                 <Button
                     android:layout_width="49dp"
                     android:layout_height="28dp"
+                    android:id="@+id/spring"
                     android:background="@drawable/aroud_spring"/>
                 <Button
                     android:layout_width="49dp"
@@ -128,12 +129,22 @@
                     android:id="@+id/aroud_post1"
                     android:background="@drawable/aroud_post1"/>
                     <Button
+                        android:id="@+id/post1_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>
+                    <Button
+                        android:id="@+id/full_heart1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -145,12 +156,22 @@
                     android:id="@+id/aroud_post2"
                     android:background="@drawable/aroud_post2"/>
                     <Button
+                        android:id="@+id/post2_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>
+                    <Button
+                        android:id="@+id/full_heart2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
             </LinearLayout>
             <LinearLayout
@@ -170,12 +191,22 @@
                         android:id="@+id/aroud_post3"
                         android:background="@drawable/aroud_post3"/>
                     <Button
+                        android:id="@+id/post3_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>
+                    <Button
+                        android:id="@+id/full_heart3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="15dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -187,12 +218,22 @@
                         android:id="@+id/aroud_post4"
                         android:background="@drawable/aroud_post4"/>
                     <Button
+                        android:id="@+id/post4_heart"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
-                        android:layout_marginRight="15dp"/>
+                        android:layout_marginRight="17dp"/>
+                    <Button
+                        android:id="@+id/full_heart4"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/fullheart"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginBottom="17dp"
+                        android:layout_marginRight="16dp"
+                        android:visibility="gone"/>
                 </FrameLayout>
             </LinearLayout>
             <LinearLayout
@@ -214,6 +255,7 @@
                     <Button
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:id="@+id/post5_heart"
                         android:background="@drawable/heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
@@ -232,6 +274,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:background="@drawable/heart"
+                        android:id="@+id/post6_heart"
                         android:layout_gravity="right|bottom"
                         android:layout_marginBottom="17dp"
                         android:layout_marginRight="15dp"/>
@@ -251,7 +294,8 @@
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"/>
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

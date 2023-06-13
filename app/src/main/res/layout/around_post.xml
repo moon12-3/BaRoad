@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center">
         <Button
             android:id="@+id/love_post"
-            android:layout_width="325dp"
-            android:layout_height="115dp"
-            android:background="@drawable/like_img"/>
+            android:layout_width="154dp"
+            android:layout_height="210dp"
+            android:background="@drawable/post"/>
         <Button
             android:id="@+id/heart"
             android:layout_width="24dp"
@@ -20,17 +21,7 @@
             android:background="@drawable/fullheart"
             android:layout_gravity="right|bottom"
             android:layout_marginBottom="17dp"
-            android:layout_marginRight="20dp"/>
-        <Button
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:background="#00ff0000"
-            android:layout_marginLeft="20dp"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            android:text="나고야 중심부 위주 코스 2"/>
+            android:layout_marginRight="15dp"/>
         <Button
             android:id="@+id/season"
             android:layout_width="wrap_content"
@@ -38,11 +29,27 @@
             android:textColor="#ffffff"
             android:background="#00ff0000"
             android:layout_marginLeft="20dp"
-
-            android:layout_gravity="center|left"
-            android:gravity="left"
-            android:textStyle="bold"
+            android:layout_gravity="left|bottom"
+            android:gravity="left|bottom"
+            android:layout_marginBottom="55dp"
+            android:textStyle="normal"
             android:textSize="10dp"
-            android:text="#봄 #여름 #가을 #겨울"/>
+            android:text="#봄 #여름 #가을 #겨울"
+            tools:ignore="RtlCompat" />
+        <Button
+            android:id="@+id/title"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textAlignment="viewStart"
+            android:background="#00ff0000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="left|bottom"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:text="나고야 중심부\n위주 코스 2"
+            tools:ignore="RtlCompat" />
+
     </FrameLayout>
 </LinearLayout>

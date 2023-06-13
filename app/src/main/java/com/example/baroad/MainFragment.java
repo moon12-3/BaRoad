@@ -97,6 +97,22 @@ public class MainFragment extends Fragment {
             }
         });
 
+//       Button spring = view.findViewById(R.id.spring);
+//       spring.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View view) {
+//               spring.setBackgroundResource(R.drawable.click_spring);
+//           }
+//       });
+
+//       Button heart = view.findViewById(R.id.heart);
+//       heart.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View view) {
+//               heart.setBackgroundResource(R.drawable.fullheart);
+//           }
+//       });
+
         return view;
 
 

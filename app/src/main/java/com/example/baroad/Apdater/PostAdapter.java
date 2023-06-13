@@ -13,22 +13,23 @@ import com.example.baroad.MainActivity;
 import com.example.baroad.Model.PostModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.AroudLikePostBinding;
+import com.example.baroad.databinding.AroundPostBinding;
 import com.example.baroad.databinding.MainListviewItemBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
-public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.ViewHolder> {
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     private List<PostModel> dataList;
     private Activity mainActivity;
 
-    private FirebaseFirestore  db = FirebaseFirestore.getInstance();
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private AroudLikePostBinding binding;
+        private AroundPostBinding binding;
 
-        public ViewHolder(AroudLikePostBinding binding) {
+        public ViewHolder(AroundPostBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
@@ -48,16 +49,17 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
         }
     }
 
-    public MyLovePostAdapter(List<PostModel> dataList, Activity activity) {
+    public PostAdapter(List<PostModel> dataList, Activity activity) {
         this.dataList = dataList;
         mainActivity = activity;
+
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(viewType, parent, false);
-        return new ViewHolder(AroudLikePostBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(AroundPostBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     // 삭제
@@ -83,6 +85,6 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.aroud_like_post;
+        return R.layout.around_post;
     }
 }
