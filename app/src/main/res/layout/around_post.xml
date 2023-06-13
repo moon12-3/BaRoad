@@ -15,7 +15,7 @@
             android:layout_height="210dp"
             android:background="@drawable/post"/>
         <Button
-            android:id="@+id/post1_heart"
+            android:id="@+id/heart"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/fullheart"
