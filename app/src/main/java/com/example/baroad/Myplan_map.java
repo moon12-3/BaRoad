@@ -1,49 +1,33 @@
 package com.example.baroad;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentResultListener;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.media.Image;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
-import android.service.autofill.FieldClassification;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.SlidingDrawer;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.baroad.Apdater.MyPlanAdapter;
+import com.example.baroad.Apdater.ItemTouchHelperCallback;
 import com.example.baroad.Apdater.MymapAdapter;
 import com.example.baroad.Model.MapModel;
-import com.example.baroad.databinding.FragmentMyplanMapBinding;
-import com.example.baroad.databinding.MymapLocationBinding;
 import com.example.baroad.databinding.FragmentMyplanMapBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,40 +36,30 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
-import javax.annotation.MatchesPattern;
 
 
 public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPressedListener {
 
     private RecyclerView recyclerView;
+    ItemTouchHelper helper;
     private MymapAdapter adapter;
 
     private GoogleMap mMap;
-    PolylineOptions options = new PolylineOptions();
+    private PolylineOptions options = new PolylineOptions();
 
-    ArrayList<MapModel> maplist;
+    private ArrayList<MapModel> maplist;
     private FragmentMyplanMapBinding binding;
 
-    Bitmap newMarker;
-    ImageView LocLine;
+    private CardView Card;
+    private Bitmap newMarker;
+    private ImageView LocLine, Back;
     private ImageButton searchButton;
     private EditText searchBox;
+    private Button fixBtn;
 
     @Override
     public void onStart() {
@@ -108,9 +82,10 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.mymap);
         mapFragment.getMapAsync(this);
-
         searchButton = view.findViewById(R.id.searchbtn);
         searchBox = view.findViewById(R.id.searchbox);
+        Back = view.findViewById(R.id.back_map);
+        fixBtn = view.findViewById(R.id.fix_btn);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,6 +103,18 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                 } catch(Exception e) {
 
                 }
+            }
+        });
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getParentFragmentManager().beginTransaction().replace(R.id.frame, new MyPlan()).commit();
+            }
+        });
+        fixBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
@@ -153,6 +140,11 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+
+        //ItemTouchHelper 생성
+        helper = new ItemTouchHelper(new ItemTouchHelperCallback(adapter));
+        //RecyclerView에 ItemTouchHelper 붙이기
+        helper.attachToRecyclerView(recyclerView);
 
         return view;
     }

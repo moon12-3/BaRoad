@@ -1,7 +1,16 @@
 package com.example.baroad.Apdater;
 
+import static android.view.MotionEvent.ACTION_DOWN;
+import static android.view.MotionEvent.ACTION_MOVE;
+
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,12 +22,34 @@ import com.example.baroad.Model.MapModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.MymapLocationBinding;
 
+import java.util.Collections;
 import java.util.List;
 
-public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> {
+public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> implements ItemTouchHelperListener{
     private List<MapModel> maplist;
-    private FragmentActivity activity;
-    private int cnt=1;
+    private boolean canMove;
+
+    @Override
+    public boolean onItemMove(int from_position, int to_position) {
+        //이동할 객체 저장
+        MapModel mapModel = maplist.get(from_position);
+        //이동할 객체 삭제
+        maplist.remove(from_position);
+        //이동하고 싶은 position에 추가
+        maplist.add(to_position,mapModel);
+
+        //Adapter에 데이터 이동알림
+        notifyItemMoved(from_position,to_position);
+        notifyItemChanged(from_position,maplist.get(to_position));
+        notifyItemChanged(to_position,maplist.get(from_position));
+        return true;
+    }
+
+    @Override
+    public void onItemSwipe(int position) {
+        maplist.remove(position);
+        notifyItemRemoved(position);
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private MymapLocationBinding binding;
@@ -29,17 +60,16 @@ public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> 
         }
 
         public void bind(MapModel map) {
-            binding.locNum.setText(cnt+"");
+            binding.locNum.setText(""+(maplist.indexOf(map)+1));
 
             binding.locName.setText(map.name);
             binding.locDetail.setText(map.detail);
-            cnt++;
+
         }
     }
 
     public MymapAdapter(List<MapModel> maplist, FragmentActivity activity) {
         this.maplist = maplist;
-        this.activity = activity;
     }
 
     @Override

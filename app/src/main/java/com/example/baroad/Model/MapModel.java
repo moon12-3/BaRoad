@@ -11,9 +11,4 @@ public class MapModel {
         this.detail = detail;
         this.location = location;
     }
-    public MapModel(){
-        this.name="";
-        this.detail="";
-        this.location = null;
-    }
 }
