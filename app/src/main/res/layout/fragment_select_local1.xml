@@ -6,14 +6,25 @@
     android:orientation="vertical"
     tools:context=".Select_local1">
 
+    <ImageView
+        android:layout_width="235dp"
+        android:layout_height="330dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/select_local1"/>
     <TextView
-        android:text="1"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:textSize="50dp"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:background="#FFCDD2"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="도쿄"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+    <ImageButton
+        android:layout_width="157dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/select_btn_coming"
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>

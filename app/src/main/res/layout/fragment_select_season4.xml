@@ -4,27 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Select_local3">
+    android:layout_marginBottom="55dp"
+    tools:context=".Select_season4">
 
     <ImageView
         android:layout_width="235dp"
         android:layout_height="330dp"
         android:layout_gravity="center"
         android:layout_marginTop="31dp"
-        android:src="@drawable/select_local3"/>
+        android:src="@drawable/select_season4"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="오사카"
+        android:text="겨울"
         android:textSize="22dp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="하얗게 내린 눈을 보며 따뜻한 음식들과\n
+즐기는 겨울! 눈 축제나 온천으로 여행해 \n
+볼까요?"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
     <ImageButton
-        android:layout_width="157dp"
+        android:layout_width="117dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:background="@drawable/select_btn_coming"
+        android:background="@drawable/select_btn"
         android:layout_marginTop="20dp"/>
 
 </LinearLayout>

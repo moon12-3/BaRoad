@@ -8,16 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Select_local3 extends Fragment {
+public class Select_season3 extends Fragment {
 
 
-    public Select_local3() {
+    public Select_season3() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_select_local3, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_select_season3, container, false);
         return rootView;
     }
 }

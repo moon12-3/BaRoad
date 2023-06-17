@@ -6,14 +6,33 @@
     android:orientation="vertical"
     tools:context=".Select_local2">
 
+    <ImageView
+        android:layout_width="235dp"
+        android:layout_height="330dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/select_local2"/>
     <TextView
-        android:text="2"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:textSize="50dp"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:background="#FFCDD2"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나고야"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일본에서 네 번째로 인구가 많은 도시이자\n 성곽 도시이며, 일본 자동차 산업의 중심지인\n
+나고야를 방문해보세요."
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <ImageButton
+        android:layout_width="117dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/select_btn"
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>
