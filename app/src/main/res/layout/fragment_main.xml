@@ -164,6 +164,18 @@
                         android:layout_marginLeft="9dp"
                         android:id="@+id/post4"
                         android:background="@drawable/main_post4" />
+                    <ImageButton
+                        android:layout_width="129dp"
+                        android:layout_height="181dp"
+                        android:layout_marginLeft="9dp"
+                        android:id="@+id/post5"
+                        android:background="@drawable/main_post5" />
+                    <ImageButton
+                        android:layout_width="129dp"
+                        android:layout_height="181dp"
+                        android:layout_marginLeft="9dp"
+                        android:id="@+id/post6"
+                        android:background="@drawable/main_post6" />
 
                 </LinearLayout>
             </HorizontalScrollView>

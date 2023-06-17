@@ -110,6 +110,12 @@ public class MainActivity extends AppCompatActivity {
             case 4:
                 fragment = TripPost4.newInstance();
                 break;
+            case 5:
+                fragment = TripPost5.newInstance();
+                break;
+            case 6:
+                fragment = TripPost6.newInstance();
+                break;
         }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame, fragment);

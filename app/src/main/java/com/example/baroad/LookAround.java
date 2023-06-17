@@ -99,7 +99,7 @@ public class LookAround extends Fragment {
 
         binding.post3Heart.setOnClickListener(v-> {
             long date = System.currentTimeMillis();
-            PostModel postModel = new PostModel(date, "나고야항 지역 코스 1", "#봄 #여름", 3);
+            PostModel postModel = new PostModel(date, "가족들을 위한 체험여행 코스", "#봄 #여름 #가을 #겨울", 3);
 
             setDB(postModel);
         });
@@ -114,7 +114,37 @@ public class LookAround extends Fragment {
 
         binding.post4Heart.setOnClickListener(v-> {
             long date = System.currentTimeMillis();
-            PostModel postModel = new PostModel(date, "나고야항 지역 코스 2", "#봄 #여름", 4);
+            PostModel postModel = new PostModel(date, "나고야항 지역 코스 1", "#봄 #여름", 4);
+
+            setDB(postModel);
+        });
+
+        Button aroud_post5 = view.findViewById(R.id.aroud_post5);
+        aroud_post5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replacePost(5);
+            }
+        });
+
+        binding.post5Heart.setOnClickListener(v-> {
+            long date = System.currentTimeMillis();
+            PostModel postModel = new PostModel(date, "나고야항 지역 코스 2", "#봄 #여름", 5);
+
+            setDB(postModel);
+        });
+
+        Button aroud_post6 = view.findViewById(R.id.aroud_post6);
+        aroud_post6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replacePost(6);
+            }
+        });
+
+        binding.post6Heart.setOnClickListener(v-> {
+            long date = System.currentTimeMillis();
+            PostModel postModel = new PostModel(date, "나고야 맛집 100% 즐기기", "#봄 #여름 #가을 #겨울", 6);
 
             setDB(postModel);
         });
@@ -158,6 +188,8 @@ public class LookAround extends Fragment {
                         binding.fullHeart2.setVisibility(View.GONE);
                         binding.fullHeart3.setVisibility(View.GONE);
                         binding.fullHeart4.setVisibility(View.GONE);
+                        binding.fullHeart5.setVisibility(View.GONE);
+                        binding.fullHeart6.setVisibility(View.GONE);
                         for (QueryDocumentSnapshot document : querySnapshot) {
                             PostModel post = document.toObject(PostModel.class);
                             postList.add(post);
@@ -166,6 +198,8 @@ public class LookAround extends Fragment {
                                 case 2 : binding.fullHeart2.setVisibility(View.VISIBLE); break;
                                 case 3 : binding.fullHeart3.setVisibility(View.VISIBLE); break;
                                 case 4 : binding.fullHeart4.setVisibility(View.VISIBLE); break;
+                                case 5 : binding.fullHeart5.setVisibility(View.VISIBLE); break;
+                                case 6 : binding.fullHeart6.setVisibility(View.VISIBLE); break;
                             }
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }

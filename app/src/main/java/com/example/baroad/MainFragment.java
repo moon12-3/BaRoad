@@ -88,6 +88,21 @@ public class MainFragment extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(TripPost4.newInstance());
             }
         });
+        ImageButton post5 = view.findViewById(R.id.post5);
+        post5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replaceFragment(TripPost5.newInstance());
+            }
+        });
+        ImageButton post6 = view.findViewById(R.id.post6);
+        post6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replaceFragment(TripPost6.newInstance());
+            }
+        });
+
 
         Button gotoMyplan = view.findViewById(R.id.gotoMyplan);
         gotoMyplan.setOnClickListener(new View.OnClickListener() {
@@ -96,22 +111,6 @@ public class MainFragment extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(MyPlan.newInstance());
             }
         });
-
-//       Button spring = view.findViewById(R.id.spring);
-//       spring.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View view) {
-//               spring.setBackgroundResource(R.drawable.click_spring);
-//           }
-//       });
-
-//       Button heart = view.findViewById(R.id.heart);
-//       heart.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View view) {
-//               heart.setBackgroundResource(R.drawable.fullheart);
-//           }
-//       });
 
         return view;
 
