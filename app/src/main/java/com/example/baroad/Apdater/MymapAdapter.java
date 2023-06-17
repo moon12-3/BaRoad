@@ -27,7 +27,6 @@ import java.util.List;
 
 public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> implements ItemTouchHelperListener{
     private List<MapModel> maplist;
-    private boolean canMove;
 
     @Override
     public boolean onItemMove(int from_position, int to_position) {

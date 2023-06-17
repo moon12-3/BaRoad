@@ -2,14 +2,19 @@ package com.example.baroad;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentResultListener;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -60,6 +65,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     private ImageButton searchButton;
     private EditText searchBox;
     private Button fixBtn;
+    private boolean canMove;
 
     @Override
     public void onStart() {
@@ -73,7 +79,6 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
             }
         });
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,6 +91,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         searchBox = view.findViewById(R.id.searchbox);
         Back = view.findViewById(R.id.back_map);
         fixBtn = view.findViewById(R.id.fix_btn);
+        canMove=false;
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +120,24 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         fixBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                switch (fixBtn.getText().toString()){
+                    case "수정":
+                        //ItemTouchHelper 생성
+                        helper = new ItemTouchHelper(new ItemTouchHelperCallback(adapter));
+                        //RecyclerView에 ItemTouchHelper 붙이기
+                        helper.attachToRecyclerView(recyclerView);
+                        fixBtn.getBackground().setColorFilter(ContextCompat.getColor(getActivity(), R.color.mycolor), PorterDuff.Mode.SRC_IN);
+                        fixBtn.setTextColor(ContextCompat.getColor(getActivity(), R.color.white));
+                        fixBtn.setText("완료");
+                        break;
+                    case "완료" :
+                        helper.attachToRecyclerView(null);
+                        fixBtn.setBackground(ContextCompat.getDrawable(getActivity(), R.drawable.fix_btn));
+                        fixBtn.getBackground().setColorFilter(null);
+                        fixBtn.setTextColor(ContextCompat.getColor(getActivity(), R.color.mycolor));
+                        fixBtn.setText("수정");
+                        break;
+                }
             }
         });
 
@@ -136,15 +159,10 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
 
         recyclerView = binding.locRecy;
         adapter = new MymapAdapter(maplist, getActivity());
-        adapter = new MymapAdapter(maplist, getActivity());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
-        //ItemTouchHelper 생성
-        helper = new ItemTouchHelper(new ItemTouchHelperCallback(adapter));
-        //RecyclerView에 ItemTouchHelper 붙이기
-        helper.attachToRecyclerView(recyclerView);
 
         return view;
     }
@@ -163,12 +181,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         }
 
         else{
-
-            //Geocoder geocoder = new Geocoder(getActivity().getBaseContext());
-            //List<Address> addresses = null;
-
-            for (MapModel map : maplist) {// 검색창에서 텍스트를 가져온다
-
+            for (MapModel map : maplist) {
                 MarkerOptions markerOptions = new MarkerOptions();
                 markerOptions.position(map.location);
                 markerOptions.title(map.name);
@@ -177,17 +190,6 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                 mMap.addMarker(markerOptions);
                 addPath(map.location);
                 drawPath();
-/*
-                try {
-                    addresses = geocoder.getFromLocationName(map.name, 3);
-                    if (addresses != null && !addresses.equals(" ")) {
-                        search(addresses, map.name);
-                    }else
-                        Log.d("TEST", map.name);
-                } catch(Exception e) {
-                    Log.d("TEST", map.name);
-                }
- */
             }
         }
 
