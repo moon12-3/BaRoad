@@ -46,8 +46,8 @@ public class SignInActivity extends AppCompatActivity {
                                     Toast.makeText(SignInActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
 
                                     FirebaseUser user = auth.getCurrentUser();
-                                    String uid = user.getUid();
-                                    UserModel userModel = new UserModel(name.getText().toString(), "imgsrc");
+                                    String uid = user.getUid();   // 이메일로 저장
+                                    UserModel userModel = new UserModel(name.getText().toString(), "imgsrc", "없음");
                                     addUserToDatabase(userModel, uid);
                                     finish();
                                     Log.d("mytag", "회원 가입(=유저 생성) 성공 " + uid);

@@ -1,14 +1,30 @@
-package com.example.baroad;
+package com.example.baroad.season;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.baroad.MainActivity;
+import com.example.baroad.Model.UserModel;
+import com.example.baroad.R;
+import com.example.baroad.SeasonAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.checkerframework.checker.units.qual.A;
 
 import me.relex.circleindicator.CircleIndicator3;
 
@@ -18,7 +34,6 @@ public class Select_season extends Fragment {
     private FragmentStateAdapter pagerAdapter;
     private int num_page = 4;
     private CircleIndicator3 mIndicator;
-
 
     public Select_season() {
         // Required empty public constructor
@@ -52,7 +67,12 @@ public class Select_season extends Fragment {
          * 좌 우로 슬라이딩 할 수 있게 함. 거의 무한대로
          */
 
-        mPager.setCurrentItem(1); //시작 지점
+        mPager.post(new Runnable() {
+            @Override
+            public void run() {
+                mPager.setCurrentItem(1);
+            }
+        });
         mPager.setOffscreenPageLimit(4); //최대 이미지 수
 
         mPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

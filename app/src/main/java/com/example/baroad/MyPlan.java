@@ -74,7 +74,6 @@ public class MyPlan extends Fragment {
 
             PlanModel plan = new PlanModel(getTime, "나고야");
 
-            String coll = "plan " + auth.getCurrentUser().getEmail();
             db.collection("users").document(auth.getCurrentUser().getEmail())
                     .collection("plan").add(plan)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

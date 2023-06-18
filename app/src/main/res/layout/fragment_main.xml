@@ -116,7 +116,12 @@
                     android:background="@drawable/local" />
 
                 <Button
-                    android:layout_width="32dp"
+                    android:id="@+id/season_txt"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textSize="13.5sp"
+                    android:textColor="@color/white"
+                    android:layout_width="40dp"
                     android:layout_height="24dp"
                     android:layout_marginLeft="7dp"
                     android:background="@drawable/season" />

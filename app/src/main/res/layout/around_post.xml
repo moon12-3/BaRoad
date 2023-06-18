@@ -22,34 +22,34 @@
             android:layout_gravity="right|bottom"
             android:layout_marginBottom="17dp"
             android:layout_marginRight="15dp"/>
-        <Button
-            android:id="@+id/season"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:background="#00ff0000"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="left|bottom"
-            android:gravity="left|bottom"
-            android:layout_marginBottom="55dp"
-            android:textStyle="normal"
-            android:textSize="10dp"
-            android:text="#봄 #여름 #가을 #겨울"
-            tools:ignore="RtlCompat" />
-        <Button
-            android:id="@+id/title"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:textAlignment="viewStart"
-            android:background="#00ff0000"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="left|bottom"
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:text="나고야 중심부\n위주 코스 2"
-            tools:ignore="RtlCompat" />
+<!--        <Button-->
+<!--            android:id="@+id/season"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:background="#00ff0000"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_gravity="left|bottom"-->
+<!--            android:gravity="left|bottom"-->
+<!--            android:layout_marginBottom="55dp"-->
+<!--            android:textStyle="normal"-->
+<!--            android:textSize="10dp"-->
+<!--            android:text="#봄 #여름 #가을 #겨울"-->
+<!--            tools:ignore="RtlCompat" />-->
+<!--        <Button-->
+<!--            android:id="@+id/title"-->
+<!--            android:layout_width="70dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:textAlignment="viewStart"-->
+<!--            android:background="#00ff0000"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_gravity="left|bottom"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="12sp"-->
+<!--            android:text="나고야 중심부\n위주 코스 2"-->
+<!--            tools:ignore="RtlCompat" />-->
 
     </FrameLayout>
 </LinearLayout>

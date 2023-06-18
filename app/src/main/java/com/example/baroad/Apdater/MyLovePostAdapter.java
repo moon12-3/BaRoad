@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +38,15 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
         public void bind(PostModel post) {
             binding.season.setText(post.season);
             binding.title.setText(post.pName);
+            int img =  R.drawable.lovepost1;
+            switch (post.postIdx) {
+                case 2 : img =  R.drawable.lovepost2; break;
+                case 3 : img =  R.drawable.lovepost3; break;
+                case 4 : img =  R.drawable.lovepost4; break;
+                case 5 : img =  R.drawable.lovepost5; break;
+                case 6 : img =  R.drawable.lovepost6; break;
+            }
+            binding.lovePost.setBackground(ContextCompat.getDrawable(mainActivity.getApplicationContext(), img));
 
             binding.lovePost.setOnClickListener(v-> {
                 ((MainActivity)mainActivity).replacePost(post.postIdx);

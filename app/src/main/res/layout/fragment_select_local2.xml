@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Select_local2">
+    tools:context=".local.Select_local2">
 
     <ImageView
         android:layout_width="235dp"

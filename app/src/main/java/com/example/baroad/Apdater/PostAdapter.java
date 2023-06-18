@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,10 +34,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             super(binding.getRoot());
             this.binding = binding;
         }
-
+``
         public void bind(PostModel post) {
-            binding.season.setText(post.season);
-            binding.title.setText(post.pName);
+//            binding.season.setText(post.season);
+//            binding.title.setText(post.pName);
+            int img =  R.drawable.aroud_post1;
+            switch (post.postIdx) {
+                case 2 : img =  R.drawable.aroud_post2; break;
+                case 3 : img =  R.drawable.aroud_post3; break;
+                case 4 : img =  R.drawable.aroud_post4; break;
+                case 5 : img =  R.drawable.aroud_post5; break;
+                case 6 : img =  R.drawable.aroud_post6; break;
+            }
+
+            binding.lovePost.setBackground(ContextCompat.getDrawable(mainActivity.getApplicationContext(), img));
 
             binding.lovePost.setOnClickListener(v-> {
                 ((MainActivity)mainActivity).replacePost(post.postIdx);

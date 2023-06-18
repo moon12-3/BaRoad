@@ -1,4 +1,4 @@
-package com.example.baroad;
+package com.example.baroad.local;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.baroad.Apdater.LocalAdapter;
+import com.example.baroad.R;
 
 import me.relex.circleindicator.CircleIndicator3;
 

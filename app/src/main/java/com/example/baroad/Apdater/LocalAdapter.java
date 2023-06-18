@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.baroad.Select_local1;
-import com.example.baroad.Select_local2;
-import com.example.baroad.Select_local3;
+import com.example.baroad.local.Select_local1;
+import com.example.baroad.local.Select_local2;
+import com.example.baroad.local.Select_local3;
 
 public class LocalAdapter extends FragmentStateAdapter {
     public int mCount;

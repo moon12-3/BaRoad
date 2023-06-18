@@ -1,4 +1,4 @@
-package com.example.baroad;
+package com.example.baroad.local;
 
 import android.os.Bundle;
 
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.example.baroad.R;
 
 public class Select_local1 extends Fragment {
 

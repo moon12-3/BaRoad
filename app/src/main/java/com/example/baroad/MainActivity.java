@@ -68,11 +68,10 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame, new LookAround())
                         .commit();
+                break;
             case 4 :
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame, new MainFragment())
-                        .commit();
-
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MainFragment()).commit();
+                break;
         }
     }
 

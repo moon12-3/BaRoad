@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginBottom="55dp"
-    tools:context=".Select_season2">
+    tools:context=".season.Select_season2">
 
     <ImageView
         android:layout_width="235dp"
@@ -29,6 +29,7 @@
         android:layout_gravity="center"
         android:gravity="center"/>
     <ImageButton
+        android:id="@+id/select_btn"
         android:layout_width="117dp"
         android:layout_height="40dp"
         android:layout_gravity="center"

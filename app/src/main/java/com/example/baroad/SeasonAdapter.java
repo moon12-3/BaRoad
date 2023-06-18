@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.baroad.season.Select_season1;
+import com.example.baroad.season.Select_season2;
+import com.example.baroad.season.Select_season3;
+import com.example.baroad.season.Select_season4;
+
 public class SeasonAdapter extends FragmentStateAdapter {
     public int mCount;
 
