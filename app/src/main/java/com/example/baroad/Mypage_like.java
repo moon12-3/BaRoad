@@ -59,8 +59,8 @@ public class Mypage_like extends Fragment {
 
     private void getDB() {
         recyclerView = binding.container;
-        String coll = "lovepost " + auth.getCurrentUser().getEmail();
-        Query docRef = db.collection(coll).orderBy("date", Query.Direction.DESCENDING);;
+        Query docRef = db.collection("users").document(auth.getCurrentUser().getEmail())
+                .collection("lovepost").orderBy("date", Query.Direction.DESCENDING);
 
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {

@@ -10,9 +10,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.baroad.post.TripPost1;
+import com.example.baroad.post.TripPost2;
+import com.example.baroad.post.TripPost3;
+import com.example.baroad.post.TripPost4;
+import com.example.baroad.post.TripPost5;
+import com.example.baroad.post.TripPost6;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottom;
@@ -63,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
             case 3 :
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame, new LookAround())
+                        .commit();
+            case 4 :
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame, new MainFragment())
                         .commit();
 
         }

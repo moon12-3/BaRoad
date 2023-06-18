@@ -69,8 +69,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     }
 
     public void delete(String pId) {
-        String coll = "lovepost " + auth.getCurrentUser().getEmail();
-        db.collection(coll).document(pId).delete();
+        db.collection("users").document(auth.getCurrentUser().getEmail())
+                .collection("lovepost").document(pId).delete();
     }
 
     @Override

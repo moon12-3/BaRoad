@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_marginBottom="55dp"
-    tools:context=".TripPost4">
+    tools:context=".post.TripPost4">
 
     <ScrollView
         android:layout_width="match_parent"

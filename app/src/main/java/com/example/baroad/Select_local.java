@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.baroad.Apdater.LocalAdapter;
+
 import me.relex.circleindicator.CircleIndicator3;
 
 public class Select_local extends Fragment {
@@ -58,7 +60,12 @@ public class Select_local extends Fragment {
          * 좌 우로 슬라이딩 할 수 있게 함. 거의 무한대로
          */
 
-        mPager.setCurrentItem(1); //시작 지점
+        mPager.post(new Runnable() {
+            @Override
+            public void run() {
+                mPager.setCurrentItem(1); //시작 지점
+            }
+        });
         mPager.setOffscreenPageLimit(3); //최대 이미지 수
 
         mPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

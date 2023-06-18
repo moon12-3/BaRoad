@@ -1,19 +1,19 @@
 package com.example.baroad.Apdater;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.baroad.LookAround;
 import com.example.baroad.MainActivity;
 import com.example.baroad.Model.PostModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.AroudLikePostBinding;
-import com.example.baroad.databinding.MainListviewItemBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -21,6 +21,7 @@ import java.util.List;
 public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.ViewHolder> {
     private List<PostModel> dataList;
     private Activity mainActivity;
+    private FragmentManager frag;
 
     private FirebaseFirestore  db = FirebaseFirestore.getInstance();
     private FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -48,9 +49,10 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
         }
     }
 
-    public MyLovePostAdapter(List<PostModel> dataList, Activity activity) {
+    public MyLovePostAdapter(List<PostModel> dataList, Activity activity, FragmentManager frag) {
         this.dataList = dataList;
         mainActivity = activity;
+        this.frag = frag;
     }
 
     @Override
@@ -67,8 +69,8 @@ public class MyLovePostAdapter extends RecyclerView.Adapter<MyLovePostAdapter.Vi
     }
 
     public void delete(String pId) {
-        String coll = "lovepost " + auth.getCurrentUser().getEmail();
-        db.collection(coll).document(pId).delete();
+        db.collection("users").document(auth.getCurrentUser().getEmail())
+                .collection("lovepost").document(pId).delete();
     }
 
     @Override

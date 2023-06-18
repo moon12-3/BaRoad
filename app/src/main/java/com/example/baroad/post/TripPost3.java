@@ -1,4 +1,4 @@
-package com.example.baroad;
+package com.example.baroad.post;
 
 import android.os.Bundle;
 
@@ -8,18 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TripPost6 extends Fragment {
+import com.example.baroad.R;
 
-    public TripPost6() {
+public class TripPost3 extends Fragment {
+
+    public TripPost3() {
         // Required empty public constructor
     }
+
     public static Fragment newInstance() {
-        return new TripPost6();
+        return new TripPost3();
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trip_post6, container, false);
+        return inflater.inflate(R.layout.fragment_trip_post3, container, false);
     }
 }

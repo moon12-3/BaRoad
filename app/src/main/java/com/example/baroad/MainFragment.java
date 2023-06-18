@@ -1,25 +1,23 @@
 package com.example.baroad;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.baroad.post.TripPost1;
+import com.example.baroad.post.TripPost2;
+import com.example.baroad.post.TripPost3;
+import com.example.baroad.post.TripPost4;
+import com.example.baroad.post.TripPost5;
+import com.example.baroad.post.TripPost6;
 
 public class MainFragment extends Fragment {
 

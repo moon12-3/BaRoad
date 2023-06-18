@@ -1,4 +1,4 @@
-package com.example.baroad;
+package com.example.baroad.post;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.baroad.R;
 
 public class TripPost2 extends Fragment {
 

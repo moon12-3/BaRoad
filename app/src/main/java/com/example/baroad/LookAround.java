@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +46,7 @@ public class LookAround extends Fragment {
     public LookAround() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,6 +58,8 @@ public class LookAround extends Fragment {
         auth = FirebaseAuth.getInstance();
 
         getDB();
+
+
 
         FragmentLookAroundBinding binding = FragmentLookAroundBinding.bind(view);
 
@@ -152,15 +156,19 @@ public class LookAround extends Fragment {
         return view;
     }
 
+    public void reload() {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
+    }
+
     private void setDB(PostModel post) {
         long now = System.currentTimeMillis();
-
-        String coll = "lovepost " + auth.getCurrentUser().getEmail();
-        db.collection(coll).document(post.pId).set(post)
+        db.collection("users").document(auth.getCurrentUser().getEmail())
+                .collection("lovepost").document(post.pId).set(post)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(getActivity(), "좋아요", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "좋아요", Toast.LENGTH_SHORT).show();
                         getDB();
                     }
                 })
@@ -174,9 +182,8 @@ public class LookAround extends Fragment {
 
     private void getDB() {
         recyclerView = binding.container;
-        String coll = "lovepost " + auth.getCurrentUser().getEmail();
-        Query docRef = db.collection(coll).orderBy("date", Query.Direction.DESCENDING);;
-
+        Query docRef = db.collection("users").document(auth.getCurrentUser().getEmail())
+                .collection("lovepost").orderBy("date", Query.Direction.DESCENDING);
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -206,7 +213,8 @@ public class LookAround extends Fragment {
 
                         adapter = new MyLovePostAdapter(
                                 postList,
-                                getActivity()
+                                getActivity(),
+                                getFragmentManager()
                         );
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -215,10 +223,5 @@ public class LookAround extends Fragment {
 
                     }
                 });
-    }
-
-    public void delete(DocumentSnapshot todo) {
-        String coll = "lovepost " + auth.getCurrentUser().getEmail();
-        db.collection(coll).document(todo.getId()).delete();
     }
 }

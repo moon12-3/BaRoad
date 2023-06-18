@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginBottom="55dp"
-    tools:context=".TripPost5">
+    tools:context=".post.TripPost5">
 
     <ScrollView
         android:layout_width="match_parent"

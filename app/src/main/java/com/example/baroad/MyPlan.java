@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -74,7 +75,8 @@ public class MyPlan extends Fragment {
             PlanModel plan = new PlanModel(getTime, "나고야");
 
             String coll = "plan " + auth.getCurrentUser().getEmail();
-            db.collection(coll).add(plan)
+            db.collection("users").document(auth.getCurrentUser().getEmail())
+                    .collection("plan").add(plan)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
@@ -95,9 +97,8 @@ public class MyPlan extends Fragment {
 
     private void setDB() {
         recyclerView = binding.container;
-        String coll = "plan " + auth.getCurrentUser().getEmail();
-        Query docRef = db.collection(coll).orderBy("date");
-
+        Query docRef = db.collection("users").document(auth.getCurrentUser().getEmail())
+                .collection("plan").orderBy("date");
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override

@@ -59,8 +59,8 @@ public class Mypage_plan extends Fragment {
 
     private void setDB() {
         recyclerView = binding.container;
-        String coll = "plan " + auth.getCurrentUser().getEmail();
-        Query docRef = db.collection(coll).orderBy("date");
+        Query docRef = db.collection("users").document(auth.getCurrentUser().getEmail())
+                .collection("plan").orderBy("date");
 
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
