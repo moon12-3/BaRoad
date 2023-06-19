@@ -7,12 +7,11 @@
     android:layout_marginBottom="55dp"
     tools:context=".Calculator">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="25dp"
-        android:text="Coming Soon" />
+        android:scaleType = "centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/calculator_bg"/>
 
 </LinearLayout>
