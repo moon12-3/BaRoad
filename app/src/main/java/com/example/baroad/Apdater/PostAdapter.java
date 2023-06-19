@@ -34,7 +34,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             super(binding.getRoot());
             this.binding = binding;
         }
-``
+
         public void bind(PostModel post) {
 //            binding.season.setText(post.season);
 //            binding.title.setText(post.pName);
