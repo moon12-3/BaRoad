@@ -91,16 +91,19 @@
                     android:layout_width="49dp"
                     android:layout_height="28dp"
                     android:layout_marginLeft="35dp"
+                    android:id="@+id/summer"
                     android:background="@drawable/aroud_summer"/>
                 <Button
                     android:layout_width="49dp"
                     android:layout_height="28dp"
                     android:layout_marginLeft="35dp"
+                    android:id="@+id/fall"
                     android:background="@drawable/aroud_fall"/>
                 <Button
                     android:layout_width="49dp"
                     android:layout_height="28dp"
                     android:layout_marginLeft="35dp"
+                    android:id="@+id/winter"
                     android:background="@drawable/aroud_winter"/>
             </LinearLayout>
             <TextView

@@ -1,5 +1,6 @@
 package com.example.baroad;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -152,6 +153,80 @@ public class LookAround extends Fragment {
 
             setDB(postModel);
         });
+
+        Button spring = view.findViewById(R.id.spring);
+        Button summer = view.findViewById(R.id.summer);
+        Button fall = view.findViewById(R.id.fall);
+        Button winter = view.findViewById(R.id.winter);
+
+        View.OnClickListener buttonClickListener = new View.OnClickListener() {
+            Button lastClickedButton = null;
+            @Override
+            public void onClick(View view) {
+                // 현재 클릭된 버튼과 이전에 클릭된 버튼이 같은 경우, 클릭 상태를 해제하고 원래 상태로 변경
+                if (lastClickedButton != null && lastClickedButton == view) {
+                    switch (lastClickedButton.getId()) {
+                        case R.id.spring:
+                            lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_spring));
+                            break;
+                        case R.id.summer:
+                            lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_summer));
+                            break;
+                        case R.id.fall:
+                            lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_fall));
+                            break;
+                        case R.id.winter:
+                            lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_winter));
+                            break;
+                    }
+                    lastClickedButton = null;
+                } else {
+                    // 마지막으로 클릭된 버튼의 상태를 원래 상태로 되돌리기
+                    if (lastClickedButton != null) {
+                        switch (lastClickedButton.getId()) {
+                            case R.id.spring:
+                                lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_spring));
+                                break;
+                            case R.id.summer:
+                                lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_summer));
+                                break;
+                            case R.id.fall:
+                                lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_fall));
+                                break;
+                            case R.id.winter:
+                                lastClickedButton.setBackground(getResources().getDrawable(R.drawable.aroud_winter));
+                                break;
+                        }
+                    }
+
+                    // 클릭된 버튼을 누른 상태로 변경
+                    Button clickedButton = (Button) view;
+                    switch (clickedButton.getId()) {
+                        case R.id.spring:
+                            clickedButton.setBackground(getResources().getDrawable(R.drawable.click_spring));
+                            break;
+                        case R.id.summer:
+                            clickedButton.setBackground(getResources().getDrawable(R.drawable.click_summer));
+                            break;
+                        case R.id.fall:
+                            clickedButton.setBackground(getResources().getDrawable(R.drawable.click_fall));
+                            break;
+                        case R.id.winter:
+                            clickedButton.setBackground(getResources().getDrawable(R.drawable.click_winter));
+                            break;
+                    }
+
+
+                    // 마지막으로 클릭된 버튼 업데이트
+                    lastClickedButton = clickedButton;
+                }
+            }
+        };
+
+        spring.setOnClickListener(buttonClickListener);
+        summer.setOnClickListener(buttonClickListener);
+        fall.setOnClickListener(buttonClickListener);
+        winter.setOnClickListener(buttonClickListener);
 
         return view;
     }
