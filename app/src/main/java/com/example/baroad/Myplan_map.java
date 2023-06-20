@@ -66,6 +66,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     private EditText PlusEdit;
     private Button fixBtn;
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -151,15 +152,15 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         LocLine = this.getActivity().findViewById(R.id.loc_line);
 
         maplist = new ArrayList<>();
-        maplist.add( new MapModel("나고야 역", "1 Chome-1-4 Meieki, Nakamura Ward, Nagoya, Aichi", new LatLng(35.171186585151005, 136.88150238057705)));
-        maplist.add( new MapModel("나고야 성", "1-1 Honmaru, Naka Ward, Nagoya, Aichi 460-0031", new LatLng(35.18516093401206, 136.89966616399312)));
-        maplist.add( new MapModel("나고야시 과학관, 미술관", "일본 〒460-0008 Aichi, Nagoya, Naka Ward, Sakae, 2 Chome−17−1 芸術と科学の杜・白川公園内", new LatLng(35.16690110207503, 136.8996596839704)));
-        maplist.add( new MapModel("오스 상점가", "Osu, Naka Ward, Nagoya, Aichi 460-0011", new LatLng(35.159220557056415, 136.90344139325344)));
-        maplist.add( new MapModel("사카에 지역", "3 Chome-5-12先 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.170141721069506, 136.90823520978492)));
-        maplist.add( new MapModel("이자카야 Gomitori Honten", "3 Chome-9-13 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.16744887508762, 136.90458910859599)));
+        maplist.add( new MapModel("나고야 역", "1 Chome-1-4 Meieki, Nakamura Ward, Nagoya, Aichi", new LatLng(35.171186585151005, 136.88150238057705),"",""));
+        maplist.add( new MapModel("나고야 성", "1-1 Honmaru, Naka Ward, Nagoya, Aichi 460-0031", new LatLng(35.18516093401206, 136.89966616399312),"",""));
+        maplist.add( new MapModel("나고야시 과학관, 미술관", "일본 〒460-0008 Aichi, Nagoya, Naka Ward, Sakae, 2 Chome−17−1 芸術と科学の杜・白川公園内", new LatLng(35.16690110207503, 136.8996596839704),"",""));
+        maplist.add( new MapModel("오스 상점가", "Osu, Naka Ward, Nagoya, Aichi 460-0011", new LatLng(35.159220557056415, 136.90344139325344),"",""));
+        maplist.add( new MapModel("사카에 지역", "3 Chome-5-12先 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.170141721069506, 136.90823520978492),"",""));
+        maplist.add( new MapModel("이자카야 Gomitori Honten", "3 Chome-9-13 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.16744887508762, 136.90458910859599),"",""));
 
         recyclerView = binding.locRecy;
-        adapter = new MymapAdapter(maplist, getActivity());
+        adapter = new MymapAdapter(maplist, getParentFragmentManager());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ViewGroup.LayoutParams layoutParams = recyclerView.getLayoutParams();
@@ -206,7 +207,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         String t = address.getFeatureName(); //장소 이름
         String t2 = address.getAddressLine(0); //상세주소
         LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude()); // 경도, 위도
-        MapModel m = new MapModel(t, t2, latLng);
+        MapModel m = new MapModel(t, t2, latLng, address.getUrl(), address.getPhone());
         maplist.add(m);
         Location a = new Location("a");
         a.setLatitude(latLng.latitude);
@@ -221,7 +222,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         addPath(latLng);
         drawPath();
 
-        adapter = new MymapAdapter(maplist, getActivity());
+        adapter = new MymapAdapter(maplist, getParentFragmentManager());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ViewGroup.LayoutParams layoutParams = recyclerView.getLayoutParams();

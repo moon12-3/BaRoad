@@ -15,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.baroad.MainActivity;
+import com.example.baroad.MapLocation_detail;
 import com.example.baroad.Model.MapModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.MymapLocationBinding;
@@ -27,6 +29,7 @@ import java.util.List;
 
 public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> implements ItemTouchHelperListener{
     private List<MapModel> maplist;
+    FragmentManager fragmentManager;
 
     @Override
     public boolean onItemMove(int from_position, int to_position) {
@@ -64,11 +67,25 @@ public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> 
             binding.locName.setText(map.name);
             binding.locDetail.setText(map.detail);
 
+            binding.more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name",map.name);
+                    bundle.putString("detail", map.detail);
+                    bundle.putString("link",map.url);
+                    bundle.putString("phone",map.phone);
+                    MapLocation_detail targetFragment = new MapLocation_detail();
+                    targetFragment.setArguments(bundle);
+                    fragmentManager.beginTransaction().replace(R.id.frame, targetFragment).commit();
+                }
+            });
         }
     }
 
-    public MymapAdapter(List<MapModel> maplist, FragmentActivity activity) {
+    public MymapAdapter(List<MapModel> maplist, FragmentManager fragmentManager) {
         this.maplist = maplist;
+        this.fragmentManager = fragmentManager;
     }
 
     @Override
