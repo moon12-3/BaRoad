@@ -99,45 +99,53 @@
                             android:layout_marginLeft="49dp"
                             android:scaleType="centerCrop"
                             android:src="@drawable/line2"
-                            android:paddingBottom="68dp"/>
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/loc_recy"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="140dp"/>
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/loc_recy"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:nestedScrollingEnabled="false"
+                                android:orientation="vertical"/>
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:paddingBottom="100dp">
+                                <TextView
+                                    android:id="@+id/plus_loc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/map_plus_icon"
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
-                        </androidx.recyclerview.widget.RecyclerView>
+                                <EditText
+                                    android:id="@+id/edit_plus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@null"
+                                    android:hint="위치 추가하기"
+                                    android:textColorHint="#949494"
+                                    android:textSize="17sp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/plus_loc"
+                                    app:layout_constraintStart_toEndOf="@+id/plus_loc"
+                                    app:layout_constraintTop_toTopOf="@+id/plus_loc" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
                     </FrameLayout>
 
                 </ScrollView>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <EditText
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="55dp"
-            android:id="@+id/searchbox"
-            android:background="@drawable/map_searchbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="검색어를 입력하시오."
-            android:textSize="12sp"/>
-
-        <ImageButton
-            android:id="@+id/searchbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="17dp"
-            android:backgroundTint="@android:color/transparent"
-            android:src="@drawable/searchbtn"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </FrameLayout>
 
 </LinearLayout>

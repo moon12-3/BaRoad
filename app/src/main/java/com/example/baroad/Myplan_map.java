@@ -29,6 +29,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.baroad.Apdater.ItemTouchHelperCallback;
 import com.example.baroad.Apdater.MymapAdapter;
@@ -59,13 +60,11 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     private ArrayList<MapModel> maplist;
     private FragmentMyplanMapBinding binding;
 
-    private CardView Card;
+    private TextView PlusBtn;
     private Bitmap newMarker;
     private ImageView LocLine, Back;
-    private ImageButton searchButton;
-    private EditText searchBox;
+    private EditText PlusEdit;
     private Button fixBtn;
-    private boolean canMove;
 
     @Override
     public void onStart() {
@@ -87,30 +86,10 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.mymap);
         mapFragment.getMapAsync(this);
-        searchButton = view.findViewById(R.id.searchbtn);
-        searchBox = view.findViewById(R.id.searchbox);
         Back = view.findViewById(R.id.back_map);
         fixBtn = view.findViewById(R.id.fix_btn);
-        canMove=false;
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            // 검색창에서 텍스트를 가져온다
-                String searchText = searchBox.getText().toString();
-
-                Geocoder geocoder = new Geocoder(getActivity());
-                List<Address> addresses = null;
-
-                try {
-                    addresses = geocoder.getFromLocationName(searchText, 3);
-                    if (addresses != null && !addresses.equals(" ")) {
-                        search(addresses);
-                    }
-                } catch(Exception e) {
-
-                }
-            }
-        });
+        PlusBtn = view.findViewById(R.id.plus_loc);
+        PlusEdit = view.findViewById(R.id.edit_plus);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,6 +119,28 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                 }
             }
         });
+        PlusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(PlusEdit.getText() != null){
+                    // 검색창에서 텍스트를 가져온다
+                    String searchText = PlusEdit.getText().toString();
+
+                    Geocoder geocoder = new Geocoder(getActivity());
+                    List<Address> addresses = null;
+
+                    try {
+                        addresses = geocoder.getFromLocationName(searchText, 3);
+                        if (addresses != null && !addresses.equals(" ")) {
+                            search(addresses);
+                        }
+                    } catch(Exception e) {
+
+                    }
+                    PlusEdit.setText(null);
+                }
+            }
+        });
 
         //마커 이미지
         BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.position_icon);
@@ -161,8 +162,10 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         adapter = new MymapAdapter(maplist, getActivity());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        ViewGroup.LayoutParams layoutParams = recyclerView.getLayoutParams();
+        layoutParams.height = maplist.size()*300; // 원하는 높이로 설정
+        recyclerView.setLayoutParams(layoutParams);
         recyclerView.setAdapter(adapter);
-
 
         return view;
     }
@@ -191,6 +194,8 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                 addPath(map.location);
                 drawPath();
             }
+            int getindex = maplist.size()/2;
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(maplist.get(getindex).location, 13));
         }
 
     }
@@ -201,6 +206,8 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         String t = address.getFeatureName(); //장소 이름
         String t2 = address.getAddressLine(0); //상세주소
         LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude()); // 경도, 위도
+        MapModel m = new MapModel(t, t2, latLng);
+        maplist.add(m);
         Location a = new Location("a");
         a.setLatitude(latLng.latitude);
         MarkerOptions markerOptions = new MarkerOptions();
@@ -214,6 +221,13 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         addPath(latLng);
         drawPath();
 
+        adapter = new MymapAdapter(maplist, getActivity());
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        ViewGroup.LayoutParams layoutParams = recyclerView.getLayoutParams();
+        layoutParams.height = maplist.size()*300; // 원하는 높이로 설정
+        recyclerView.setLayoutParams(layoutParams);
+        recyclerView.setAdapter(adapter);
     }
     private void addPath(LatLng newlat){        //polyline을 그려주는 메소드
         options.add(newlat);
