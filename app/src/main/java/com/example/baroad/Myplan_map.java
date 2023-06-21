@@ -2,6 +2,7 @@ package com.example.baroad;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,12 +25,14 @@ import android.os.Debug;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,7 +75,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     private ArrayList<MapModel> maplist;
     private FragmentMyplanMapBinding binding;
 
-    private TextView PlusBtn;
+    private TextView PlusBtn, title;
     private Bitmap newMarker;
     private String id;
     private int cnt;
@@ -82,33 +85,27 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     private Button fixBtn;
     private FirebaseFirestore db;
     private FirebaseAuth auth;
+    private Bundle mybundle;
 
+    private CardView card;
+    private ConstraintLayout head;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
-                String date = bundle.getString("date");
-                String local = bundle.getString("local");
-                id = bundle.getString("id");
-                binding.title.setText(date + " " + local);
-                maplist = new ArrayList<>();
-                getDB();
-            }
-        });
-    }
+    private int touch;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_myplan_map, container, false);
         binding = FragmentMyplanMapBinding.bind(view);
+
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.mymap);
         mapFragment.getMapAsync(this);
+
+        title = binding.title;
+
         Back = view.findViewById(R.id.back_map);
         fixBtn = view.findViewById(R.id.fix_btn);
         PlusBtn = view.findViewById(R.id.plus_loc);
@@ -168,24 +165,41 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
             }
         });
 
+        touch =0;
+        card = view.findViewById(R.id.card);
+        head = view.findViewById(R.id.c_header);
+        head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                touch++;
+                int margin = 1000;
+                int padding =50;
+                if(touch%2==1) { margin = -50; padding *= (-1);}
+                CardView.LayoutParams layoutParams = (CardView.LayoutParams)card.getLayoutParams();
+                layoutParams.topMargin = margin;
+                card.setLayoutParams(layoutParams);
+                head.setPadding(head.getPaddingLeft(), head.getPaddingTop()+padding, head.getPaddingRight(), head.getPaddingBottom());
+            }
+        });
+
         //마커 이미지
-        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.position_icon);
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.position_icon_m);
         Bitmap b=bitmapdraw.getBitmap();
-        newMarker = Bitmap.createScaledBitmap(b, 40, 40, false);
+        newMarker = Bitmap.createScaledBitmap(b, 65, 65, false);
 
 
         LocLine = this.getActivity().findViewById(R.id.loc_line);
 
 //        maplist = new ArrayList<>();
-//        maplist.add( new MapModel("나고야 역", "1 Chome-1-4 Meieki, Nakamura Ward, Nagoya, Aichi", new LatLng(35.171186585151005, 136.88150238057705),"",""));
+//        maplist.add( new MapModel("나고야 역", "1 Chome-1-4 Meieki, Nakamura Ward, Nagoya, Aichi", new LatLng(35.171186585151005, 136.88150238057705),"유알엘엘엘","폰"));
 //        maplist.add( new MapModel("나고야 성", "1-1 Honmaru, Naka Ward, Nagoya, Aichi 460-0031", new LatLng(35.18516093401206, 136.89966616399312),"",""));
 //        maplist.add( new MapModel("나고야시 과학관, 미술관", "일본 〒460-0008 Aichi, Nagoya, Naka Ward, Sakae, 2 Chome−17−1 芸術と科学の杜・白川公園内", new LatLng(35.16690110207503, 136.8996596839704),"",""));
 //        maplist.add( new MapModel("오스 상점가", "Osu, Naka Ward, Nagoya, Aichi 460-0011", new LatLng(35.159220557056415, 136.90344139325344),"",""));
 //        maplist.add( new MapModel("사카에 지역", "3 Chome-5-12先 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.170141721069506, 136.90823520978492),"",""));
 //        maplist.add( new MapModel("이자카야 Gomitori Honten", "3 Chome-9-13 Sakae, Naka Ward, Nagoya, Aichi 460-0008", new LatLng(35.16744887508762, 136.90458910859599),"",""));
 
-        recyclerView = binding.locRecy;
-//        adapter = new MymapAdapter(maplist, getParentFragmentManager());
+        recyclerView = view.findViewById(R.id.loc_recy);
+//        adapter = new MymapAdapter(maplist, getParentFragmentManager(), mybundle);
 //
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 //        ViewGroup.LayoutParams layoutParams = recyclerView.getLayoutParams();
@@ -198,6 +212,13 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
 
     @Override
     public void onMapReady(final GoogleMap googleMap) {
+        mybundle = getArguments();
+        String date = mybundle.getString("date");
+        String local = mybundle.getString("local");
+        id = mybundle.getString("id");
+        title.setText(date + " " + local);
+        maplist = new ArrayList<>();
+        getDB();
 
         mMap = googleMap;
         if(maplist.isEmpty()){
@@ -205,11 +226,10 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
             LatLng P = new LatLng(35.17731148171244, 136.90706992119397);
             markerOptions.position(P);
             markerOptions.title("나고야시");
+            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(newMarker));
             mMap.addMarker(markerOptions);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(P, 18));
-        }
-
-        else{
+        }else{
             for (MapModel map : maplist) {
                 MarkerOptions markerOptions = new MarkerOptions();
                 markerOptions.position(new LatLng(map.latitude, map.longitude));
@@ -248,7 +268,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         addPath(latLng);
         drawPath();
 
-        adapter = new MymapAdapter(maplist, getParentFragmentManager());
+        adapter = new MymapAdapter(maplist, getParentFragmentManager(),mybundle);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ViewGroup.LayoutParams layoutParams = recyclerView.getLayoutParams();
@@ -307,7 +327,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot querySnapshot) {
-                        maplist.clear();
+                        //maplist.clear();
                         cnt = 0;
                         for (QueryDocumentSnapshot document : querySnapshot) {
                             MapModel map = document.toObject(MapModel.class);
@@ -330,7 +350,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new MymapAdapter(maplist, getParentFragmentManager());
+                        adapter = new MymapAdapter(maplist, getParentFragmentManager(), mybundle);
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         ViewGroup.LayoutParams layoutParams = recyclerView.getLayoutParams();

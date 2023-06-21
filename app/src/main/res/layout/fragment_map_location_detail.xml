@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/back_btn"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginLeft="20dp"
@@ -51,8 +51,8 @@
 
     <ImageView
         android:id="@+id/loc_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_margin="35dp"
         android:src="@drawable/loc_icon_d"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,20 +60,22 @@
 
     <TextView
         android:id="@+id/loc_icon_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
         android:text="주소"
         android:textColor="#777777"
-        android:layout_marginLeft="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/loc_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/loc_icon"
         app:layout_constraintTop_toTopOf="@+id/loc_icon" />
 
     <ImageView
         android:id="@+id/loc_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_margin="35dp"
         android:src="@drawable/link_icon_d"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,20 +83,22 @@
 
     <TextView
         android:id="@+id/loc_link_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
         android:text="주소"
         android:textColor="#777777"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/loc_link"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/loc_link"
         app:layout_constraintTop_toTopOf="@+id/loc_link" />
 
     <ImageView
         android:id="@+id/loc_call"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_margin="35dp"
         android:src="@drawable/call_icon_d"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,13 +106,15 @@
 
     <TextView
         android:id="@+id/loc_call_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
         android:text="주소"
         android:textColor="#777777"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/loc_call"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/loc_call"
         app:layout_constraintTop_toTopOf="@+id/loc_call" />
 </androidx.constraintlayout.widget.ConstraintLayout>
