@@ -59,7 +59,7 @@ public class Mypage_plan extends Fragment {
     private void setDB() {
         recyclerView = binding.container;
         Query docRef = db.collection("users").document(auth.getCurrentUser().getEmail())
-                .collection("plan").orderBy("time");
+                .collection("plan").orderBy("time", Query.Direction.DESCENDING);
 
         docRef.get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
