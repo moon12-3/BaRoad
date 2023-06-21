@@ -4,23 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.baroad.LookAround;
 import com.example.baroad.MainActivity;
 import com.example.baroad.Model.PlanModel;
 import com.example.baroad.R;
 import com.example.baroad.databinding.MainListviewItemBinding;
-import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.List;
 
 public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder> {
     private List<PlanModel> dataList;
+    private List<String> idList;
     private FragmentActivity activity;
     private FragmentManager fgManager;
 
@@ -40,16 +38,18 @@ public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder
                 Bundle result = new Bundle();
                 result.putString("date", schedule.date);
                 result.putString("local", schedule.local);
+                result.putString("id", idList.get(getAdapterPosition()));
                 fgManager.setFragmentResult("requestKey", result);
                 ((MainActivity)activity).changeFragment(2);
             });
         }
     }
 
-    public MyPlanAdapter(List<PlanModel> dataList, FragmentActivity activity, FragmentManager fgManager) {
+    public MyPlanAdapter(List<PlanModel> dataList, List<String> idList, FragmentActivity activity, FragmentManager fgManager) {
         this.dataList = dataList;
         this.fgManager = fgManager;
         this.activity = activity;
+        this.idList = idList;
     }
 
     @Override

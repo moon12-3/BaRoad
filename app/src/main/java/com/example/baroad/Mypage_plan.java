@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.example.baroad.Apdater.MyPlanAdapter;
 import com.example.baroad.Model.PlanModel;
-import com.example.baroad.databinding.FragmentMyPlanBinding;
 import com.example.baroad.databinding.FragmentMypagePlanBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,15 +66,17 @@ public class Mypage_plan extends Fragment {
                     @Override
                     public void onSuccess(QuerySnapshot querySnapshot) {
                         List<PlanModel> planList = new ArrayList<>();
+                        List<String> idList = new ArrayList<>();
 
                         planList.clear();
                         for (QueryDocumentSnapshot document : querySnapshot) {
                             PlanModel schedule = document.toObject(PlanModel.class);
                             planList.add(schedule);
+                            idList.add(document.getId());
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new MyPlanAdapter(planList, getActivity(), getParentFragmentManager());
+                        adapter = new MyPlanAdapter(planList, idList, getActivity(), getParentFragmentManager());
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(adapter);

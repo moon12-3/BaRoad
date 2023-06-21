@@ -112,6 +112,8 @@
                                 android:nestedScrollingEnabled="false"
                                 android:orientation="vertical"/>
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/add_loc"
+                                android:visibility="gone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="30dp"

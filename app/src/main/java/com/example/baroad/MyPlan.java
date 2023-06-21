@@ -103,15 +103,17 @@ public class MyPlan extends Fragment {
                     @Override
                     public void onSuccess(QuerySnapshot querySnapshot) {
                         List<PlanModel> planList = new ArrayList<>();
+                        List<String> idList = new ArrayList<>();
 
                         planList.clear();
                         for (QueryDocumentSnapshot document : querySnapshot) {
                             PlanModel schedule = document.toObject(PlanModel.class);
                             planList.add(schedule);
+                            idList.add(document.getId());
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }
 
-                        adapter = new MyPlanAdapter(planList, getActivity(), getParentFragmentManager());
+                        adapter = new MyPlanAdapter(planList, idList, getActivity(), getParentFragmentManager());
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(adapter);
