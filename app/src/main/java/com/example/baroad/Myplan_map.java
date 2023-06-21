@@ -212,16 +212,16 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         else{
             for (MapModel map : maplist) {
                 MarkerOptions markerOptions = new MarkerOptions();
-                markerOptions.position(map.location);
+                markerOptions.position(new LatLng(map.latitude, map.longitude));
                 markerOptions.title(map.name);
                 markerOptions.snippet(map.detail);
                 markerOptions.icon(BitmapDescriptorFactory.fromBitmap(newMarker));
                 mMap.addMarker(markerOptions);
-                addPath(map.location);
+                addPath(new LatLng(map.latitude, map.longitude));
                 drawPath();
             }
             int getindex = maplist.size()/2;
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(maplist.get(getindex).location, 13));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(maplist.get(getindex).latitude, maplist.get(getindex).longitude), 13));
         }
 
     }
@@ -232,7 +232,8 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         String t = address.getFeatureName(); //장소 이름
         String t2 = address.getAddressLine(0); //상세주소
         LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude()); // 경도, 위도
-        MapModel m = new MapModel(t, t2, latLng, address.getUrl(), address.getPhone(), System.currentTimeMillis());
+        // MapModel m = new MapModel(t, t2, latLng, address.getUrl(), address.getPhone(), System.currentTimeMillis());
+        MapModel m = new MapModel(t, t2, address.getLatitude(), address.getLongitude(), address.getUrl(), address.getPhone(), System.currentTimeMillis());
         maplist.add(m);
         Location a = new Location("a");
         a.setLatitude(latLng.latitude);
@@ -311,6 +312,20 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                         for (QueryDocumentSnapshot document : querySnapshot) {
                             MapModel map = document.toObject(MapModel.class);
                             maplist.add(map);
+                            LatLng latLng = new LatLng(map.latitude, map.longitude);
+                            Location a = new Location("a");
+                            a.setLatitude(latLng.latitude);
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(newMarker));
+                            markerOptions.position(latLng);
+                            markerOptions.title(map.name);
+                            markerOptions.snippet(map.detail);
+
+                            mMap.addMarker(markerOptions);
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
+                            addPath(latLng);
+                            drawPath();
+
                             cnt++;
                             Log.d("mytag", document.getId() + " => " + document.getData());
                         }

@@ -2,29 +2,33 @@ package com.example.baroad.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.google.android.gms.maps.model.LatLng;
 
 public class MapModel implements Parcelable {
-    public LatLng location;
+    public double latitude;
+    public double longitude;
     public String name, detail, url, phone;
     public Long time;
 
-    public MapModel(String name, String detail, LatLng location, String url, String phone, Long time) {
+    public MapModel(String name, String detail, double latitude, double longitude, String url, String phone, Long time) {
         this.name = name;
         this.detail = detail;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.time = time;
         this.url = url;
         this.phone = phone;
-        this.location = location;
     }
 
     public MapModel() {
         this.name = "";
         this.detail = "";
+        this.latitude = 0;
+        this.longitude = 0;
         this.time = System.currentTimeMillis();
         this.url = "";
         this.phone = "";
-        this.location = new LatLng(0, 0);
     }
 
     protected MapModel(Parcel in) {
@@ -33,9 +37,8 @@ public class MapModel implements Parcelable {
         time = in.readLong();
         phone = in.readString();
         url = in.readString();
-        double latitude = in.readDouble();
-        double longitude = in.readDouble();
-        location = new LatLng(latitude, longitude);
+        latitude = in.readDouble();
+        longitude = in.readDouble();
     }
 
     public static final Creator<MapModel> CREATOR = new Creator<MapModel>() {
@@ -57,13 +60,17 @@ public class MapModel implements Parcelable {
         dest.writeLong(time);
         dest.writeString(phone);
         dest.writeString(url);
-        dest.writeDouble(location.latitude);
-        dest.writeDouble(location.longitude);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
     }
 
     @Override
     public int describeContents() {
         return 0;
     }
+
+//    public LatLng getLocation() {
+//        return new LatLng(latitude, longitude);
+//    }
 }
 
