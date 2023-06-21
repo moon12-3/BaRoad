@@ -43,11 +43,6 @@ public class MainFragment extends Fragment {
         return new MainFragment();
     }
 
-    public void refreshFragment(Fragment fragment, FragmentManager fragmentManager) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.detach(fragment).attach(fragment).commit();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,7 +57,6 @@ public class MainFragment extends Fragment {
                 if (dataSnapshot.exists()) {
                     UserModel userModel = dataSnapshot.getValue(UserModel.class);
                     binding.seasonTxt.setText(userModel.getSeason());
-                    refreshFragment(newInstance(), getFragmentManager());
 
                 } else {
                     Log.d("my_tag", "No such document");
