@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.baroad.MainActivity;
 import com.example.baroad.Model.PlanModel;
+import com.example.baroad.Myplan_map;
 import com.example.baroad.R;
 import com.example.baroad.databinding.MainListviewItemBinding;
 
@@ -39,8 +40,11 @@ public class MyPlanAdapter extends RecyclerView.Adapter<MyPlanAdapter.ViewHolder
                 result.putString("date", schedule.date);
                 result.putString("local", schedule.local);
                 result.putString("id", idList.get(getAdapterPosition()));
-                fgManager.setFragmentResult("requestKey", result);
-                ((MainActivity)activity).changeFragment(2);
+//                fgManager.setFragmentResult("requestKey", result);
+//                ((MainActivity)activity).changeFragment(2);
+                Myplan_map map = new Myplan_map();
+                map.setArguments(result);
+                fgManager.beginTransaction().replace(R.id.frame, map).commit();
             });
         }
     }

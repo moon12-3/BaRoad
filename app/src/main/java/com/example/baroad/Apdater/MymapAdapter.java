@@ -30,6 +30,7 @@ import java.util.List;
 public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> implements ItemTouchHelperListener{
     private List<MapModel> maplist;
     FragmentManager fragmentManager;
+    private Bundle mybundle;
 
     @Override
     public boolean onItemMove(int from_position, int to_position) {
@@ -75,6 +76,7 @@ public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> 
                     bundle.putString("detail", map.detail);
                     bundle.putString("link",map.url);
                     bundle.putString("phone",map.phone);
+                    bundle.putBundle("mybundle",mybundle);
                     MapLocation_detail targetFragment = new MapLocation_detail();
                     targetFragment.setArguments(bundle);
                     fragmentManager.beginTransaction().replace(R.id.frame, targetFragment).commit();
@@ -83,9 +85,10 @@ public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> 
         }
     }
 
-    public MymapAdapter(List<MapModel> maplist, FragmentManager fragmentManager) {
+    public MymapAdapter(List<MapModel> maplist, FragmentManager fragmentManager, Bundle bundle) {
         this.maplist = maplist;
         this.fragmentManager = fragmentManager;
+        this.mybundle=bundle;
     }
 
     @Override
