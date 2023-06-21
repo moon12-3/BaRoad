@@ -240,6 +240,7 @@
                 </HorizontalScrollView>
             </FrameLayout>
             <Button
+                android:id="@+id/add_cos"
                 android:layout_width="312dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"

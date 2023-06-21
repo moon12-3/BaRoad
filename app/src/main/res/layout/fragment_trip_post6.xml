@@ -109,6 +109,7 @@
                     </LinearLayout>
                 </HorizontalScrollView>
                 <Button
+                    android:id="@+id/add_cos1"
                     android:layout_width="312dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center|bottom"
@@ -171,6 +172,7 @@
                     </LinearLayout>
                 </HorizontalScrollView>
                 <Button
+                    android:id="@+id/add_cos2"
                     android:layout_width="312dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center|bottom"
