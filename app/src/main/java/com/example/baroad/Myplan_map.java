@@ -96,6 +96,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_myplan_map, container, false);
+        binding = FragmentMyplanMapBinding.bind(view);
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -103,14 +104,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                 .findFragmentById(R.id.mymap);
         mapFragment.getMapAsync(this);
 
-        title = view.findViewById(R.id.title);
-        mybundle = getArguments();
-        String date = mybundle.getString("date");
-        String local = mybundle.getString("local");
-        id = mybundle.getString("id");
-        title.setText(date + " " + local);
-        maplist = new ArrayList<>();
-        getDB();
+        title = binding.title;
 
         Back = view.findViewById(R.id.back_map);
         fixBtn = view.findViewById(R.id.fix_btn);
@@ -218,13 +212,21 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
 
     @Override
     public void onMapReady(final GoogleMap googleMap) {
+        mybundle = getArguments();
+        String date = mybundle.getString("date");
+        String local = mybundle.getString("local");
+        id = mybundle.getString("id");
+        title.setText(date + " " + local);
+        maplist = new ArrayList<>();
+        getDB();
 
         mMap = googleMap;
-        if(maplist.size()<=0){
+        if(maplist.isEmpty()){
             MarkerOptions markerOptions = new MarkerOptions();
             LatLng P = new LatLng(35.17731148171244, 136.90706992119397);
             markerOptions.position(P);
             markerOptions.title("나고야시");
+            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(newMarker));
             mMap.addMarker(markerOptions);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(P, 18));
         }else{
@@ -325,7 +327,7 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot querySnapshot) {
-                        maplist.clear();
+                        //maplist.clear();
                         cnt = 0;
                         for (QueryDocumentSnapshot document : querySnapshot) {
                             MapModel map = document.toObject(MapModel.class);
