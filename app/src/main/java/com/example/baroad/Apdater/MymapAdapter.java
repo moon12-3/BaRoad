@@ -100,6 +100,19 @@ public class MymapAdapter extends RecyclerView.Adapter<MymapAdapter.ViewHolder> 
 
     // 삭제
     public void removeData(int position) {
+        for(int i=position; i<maplist.size(); i++){
+            //이동할 객체 저장
+            MapModel mapModel = maplist.get(i);
+            //이동할 객체 삭제
+            maplist.remove(i);
+            //이동하고 싶은 position에 추가
+            maplist.add((i+1),mapModel);
+
+            //Adapter에 데이터 이동알림
+            notifyItemMoved(i,(i+1));
+            notifyItemChanged(i,maplist.get((i+1)));
+            notifyItemChanged((i+1),maplist.get(i));
+        }
         maplist.remove(position);
         notifyItemRemoved(position);
     }

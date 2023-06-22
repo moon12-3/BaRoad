@@ -253,7 +253,9 @@ public class Myplan_map extends Fragment implements OnMapReadyCallback, OnBackPr
         String t2 = address.getAddressLine(0); //상세주소
         LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude()); // 경도, 위도
         // MapModel m = new MapModel(t, t2, latLng, address.getUrl(), address.getPhone(), System.currentTimeMillis());
-        MapModel m = new MapModel(t, t2, address.getLatitude(), address.getLongitude(), address.getUrl(), address.getPhone(), System.currentTimeMillis());
+        String url = address.getUrl()==null ? "https://railway.jr-central.co.jp/station-guide/shinkansen/nagoya/index.html" : address.getUrl();
+        String phone = address.getPhone()==null ? "+81 50-3772-3910" : address.getPhone();
+        MapModel m = new MapModel(t, t2, address.getLatitude(), address.getLongitude(), url, phone, System.currentTimeMillis());
         maplist.add(m);
         Location a = new Location("a");
         a.setLatitude(latLng.latitude);
