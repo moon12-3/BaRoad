@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.baroad.MainActivity;
 import com.example.baroad.Model.MapModel;
 import com.example.baroad.Model.PlanModel;
 import com.example.baroad.R;
@@ -61,6 +62,10 @@ public class TripPost1 extends Fragment {
         docu.add(new MapModel("나고야 시 과학관, 미술관", "나고야시 나카구 사카에 2쵸메 17번 1호", 35.16444714035648, 136.90024701874222, "", "", 3L));
         docu.add(new MapModel("오스 상점가", "나고야시 주오구 오스", 35.158994319237685, 136.90342537217754, "", "", 4L));
         docu.add(new MapModel("사카에 지역", "나고야시 나카구", 35.169956689087634, 136.90864379684433, "", "", 5L));
+
+        view.findViewById(R.id.back).setOnClickListener(v-> {
+            ((MainActivity)getActivity()).changeFragment(4);
+        });
 
         view.findViewById(R.id.add_cos).setOnClickListener(v->{
             db.collection("users").document(auth.getCurrentUser().getEmail())
